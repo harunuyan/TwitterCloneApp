@@ -1,6 +1,7 @@
 package com.volie.twittercloneapp.view
 
 import android.os.Bundle
+import android.view.View
 import androidx.activity.addCallback
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
@@ -16,8 +17,8 @@ import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
-    private var _mBinding: ActivityMainBinding? = null
-    private val mBinding get() = _mBinding!!
+    var _mBinding: ActivityMainBinding? = null
+    val mBinding get() = _mBinding!!
     private lateinit var navController: NavController
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -53,6 +54,17 @@ class MainActivity : AppCompatActivity() {
         val navHostFragment =
             supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
         navController = navHostFragment.navController
+        navController.addOnDestinationChangedListener { _, destination, _ ->
+            when (destination.id) {
+                R.id.addPostFragment -> {
+                    mBinding.bottomNavigationView.visibility = View.GONE
+                    mBinding.toolbar.visibility = View.GONE
+                }
+                else -> {
+                    mBinding.toolbar.visibility = View.VISIBLE
+                }
+            }
+        }
         mBinding.bottomNavigationView.setupWithNavController(navController)
         setupActionBarWithNavController(navController)
     }
