@@ -5,6 +5,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.google.android.material.bottomsheet.BottomSheetDialog
+import com.volie.twittercloneapp.R
 import com.volie.twittercloneapp.databinding.FragmentAddPostBinding
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -20,6 +22,22 @@ class AddPostFragment : Fragment() {
     ): View {
         _mBinding = FragmentAddPostBinding.inflate(inflater, container, false)
         return mBinding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        mBinding.ivBack.setOnClickListener {
+            requireActivity().onBackPressedDispatcher.onBackPressed()
+        }
+
+        mBinding.btnPublicCircle.setOnClickListener {
+            val bottomSheetDialog =
+                BottomSheetDialog(requireContext(), R.style.BottomSheetDialogTheme)
+            val bottomSheetView = LayoutInflater.from(requireContext())
+                .inflate(R.layout.layout_bottom_sheet_add_post, mBinding.root, false)
+            bottomSheetDialog.setContentView(bottomSheetView)
+            bottomSheetDialog.show()
+        }
     }
 
     override fun onDestroyView() {
