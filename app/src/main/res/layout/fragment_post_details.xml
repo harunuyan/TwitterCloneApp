@@ -18,7 +18,7 @@
             android:layout_height="match_parent">
 
             <com.makeramen.roundedimageview.RoundedImageView
-                android:id="@+id/img_profile_photo"
+                android:id="@+id/iv_profile_photo"
                 android:layout_width="54dp"
                 android:layout_height="54dp"
                 android:layout_marginStart="12dp"
@@ -38,8 +38,8 @@
                 android:text="Username"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/img_profile_photo"
-                app:layout_constraintTop_toTopOf="@id/img_profile_photo" />
+                app:layout_constraintStart_toEndOf="@id/iv_profile_photo"
+                app:layout_constraintTop_toTopOf="@id/iv_profile_photo" />
 
             <TextView
                 android:id="@+id/tv_nickname"
@@ -53,7 +53,7 @@
                 app:layout_constraintTop_toBottomOf="@id/tv_username" />
 
             <ImageView
-                android:id="@+id/img_post_photo"
+                android:id="@+id/iv_post_photo"
                 android:layout_width="387dp"
                 android:layout_height="203dp"
                 android:layout_marginTop="8dp"
@@ -61,7 +61,7 @@
                 android:clipToOutline="true"
                 android:src="@color/cardview_dark_background"
                 android:visibility="visible"
-                app:layout_constraintStart_toStartOf="@id/img_profile_photo"
+                app:layout_constraintStart_toStartOf="@id/iv_profile_photo"
                 app:layout_constraintTop_toBottomOf="@id/tv_post_text" />
 
             <TextView
@@ -76,8 +76,8 @@
                 android:visibility="visible"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="@id/img_profile_photo"
-                app:layout_constraintTop_toBottomOf="@id/img_profile_photo" />
+                app:layout_constraintStart_toStartOf="@id/iv_profile_photo"
+                app:layout_constraintTop_toBottomOf="@id/iv_profile_photo" />
 
             <TextView
                 android:id="@+id/tv_post_time_view"
@@ -89,7 +89,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="@id/tv_post_text"
-                app:layout_constraintTop_toBottomOf="@id/img_post_photo" />
+                app:layout_constraintTop_toBottomOf="@id/iv_post_photo" />
 
             <com.google.android.material.divider.MaterialDivider
                 android:layout_width="match_parent"
@@ -131,7 +131,7 @@
                 app:layout_constraintTop_toTopOf="@id/tv_post_quote" />
 
             <ImageView
-                android:id="@+id/img_post_comment"
+                android:id="@+id/iv_post_comment"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="18dp"
@@ -141,22 +141,22 @@
                 app:layout_constraintTop_toBottomOf="@id/tv_post_retweet" />
 
             <ImageView
-                android:id="@+id/img_post_retweet"
+                android:id="@+id/iv_post_retweet"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="55dp"
                 android:src="@drawable/ic_retweet"
-                app:layout_constraintStart_toEndOf="@+id/img_post_comment"
-                app:layout_constraintTop_toTopOf="@id/img_post_comment" />
+                app:layout_constraintStart_toEndOf="@+id/iv_post_comment"
+                app:layout_constraintTop_toTopOf="@id/iv_post_comment" />
 
             <ImageView
-                android:id="@+id/img_post_like"
+                android:id="@+id/iv_post_like"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="105dp"
                 android:src="@drawable/ic_like"
                 app:layout_constraintStart_toEndOf="@id/tv_post_retweet"
-                app:layout_constraintTop_toTopOf="@id/img_post_comment" />
+                app:layout_constraintTop_toTopOf="@id/iv_post_comment" />
 
             <ImageView
                 android:id="@+id/img_post_save"
@@ -165,8 +165,8 @@
                 android:layout_marginStart="50dp"
                 android:src="@drawable/ic_save"
                 app:layout_constraintEnd_toStartOf="@+id/img_post_share"
-                app:layout_constraintStart_toEndOf="@id/img_post_like"
-                app:layout_constraintTop_toTopOf="@id/img_post_comment" />
+                app:layout_constraintStart_toEndOf="@id/iv_post_like"
+                app:layout_constraintTop_toTopOf="@id/iv_post_comment" />
 
             <ImageView
                 android:id="@+id/img_post_share"
@@ -177,14 +177,14 @@
                 android:src="@drawable/ic_share"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/img_post_save"
-                app:layout_constraintTop_toTopOf="@id/img_post_comment" />
+                app:layout_constraintTop_toTopOf="@id/iv_post_comment" />
 
             <com.google.android.material.divider.MaterialDivider
                 android:id="@+id/last_divider"
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
                 android:layout_marginTop="5dp"
-                app:layout_constraintTop_toBottomOf="@id/img_post_comment" />
+                app:layout_constraintTop_toBottomOf="@id/iv_post_comment" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rv_post_details"
@@ -195,7 +195,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/img_post_comment" />
+                app:layout_constraintTop_toBottomOf="@id/iv_post_comment" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
