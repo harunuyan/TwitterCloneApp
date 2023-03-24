@@ -159,24 +159,24 @@
                 app:layout_constraintTop_toTopOf="@id/iv_post_comment" />
 
             <ImageView
-                android:id="@+id/img_post_save"
+                android:id="@+id/iv_post_save"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="50dp"
                 android:src="@drawable/ic_save"
-                app:layout_constraintEnd_toStartOf="@+id/img_post_share"
+                app:layout_constraintEnd_toStartOf="@+id/iv_post_share"
                 app:layout_constraintStart_toEndOf="@id/iv_post_like"
                 app:layout_constraintTop_toTopOf="@id/iv_post_comment" />
 
             <ImageView
-                android:id="@+id/img_post_share"
+                android:id="@+id/iv_post_share"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="50dp"
                 android:layout_marginEnd="30dp"
                 android:src="@drawable/ic_share"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/img_post_save"
+                app:layout_constraintStart_toEndOf="@id/iv_post_save"
                 app:layout_constraintTop_toTopOf="@id/iv_post_comment" />
 
             <com.google.android.material.divider.MaterialDivider

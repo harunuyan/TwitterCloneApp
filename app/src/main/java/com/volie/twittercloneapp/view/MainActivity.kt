@@ -60,6 +60,23 @@ class MainActivity : AppCompatActivity() {
                     mBinding.bottomNavigationView.visibility = View.GONE
                     mBinding.toolbar.visibility = View.GONE
                 }
+                R.id.postDetailsFragment -> {
+                    mBinding.bottomNavigationView.visibility = View.VISIBLE
+                    mBinding.toolbar.visibility = View.VISIBLE
+                }
+
+                R.id.trendsFragment -> {
+                    mBinding.toolbar.visibility = View.GONE
+                }
+
+                R.id.messageFragment -> {
+                    mBinding.toolbar.visibility = View.GONE
+                }
+
+                R.id.homeFragment -> {
+                    mBinding.toolbar.visibility = View.GONE
+                    mBinding.bottomNavigationView.visibility = View.VISIBLE
+                }
                 else -> {
                     mBinding.toolbar.visibility = View.VISIBLE
                 }
