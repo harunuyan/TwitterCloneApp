@@ -4,4 +4,7 @@
     <string name="topics">Topics</string>
     <string name="bookmarks">Bookmarks</string>
     <string name="list">List</string>
+    <string name="twitter_blue">Twitter Blue</string>
+    <string name="twitter_circle">Twitter Circle</string>
+    <string name="search_twitter">Search Twitter</string>
 </resources>
