@@ -5,12 +5,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.volie.twittercloneapp.databinding.FragmentSearchBinding
+import com.volie.twittercloneapp.databinding.FragmentTrendsBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class SearchFragment : Fragment() {
-    private var _mBinding: FragmentSearchBinding? = null
+class TrendsFragment : Fragment() {
+    private var _mBinding: FragmentTrendsBinding? = null
     private val mBinding get() = _mBinding!!
 
     override fun onCreateView(
@@ -18,7 +18,7 @@ class SearchFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _mBinding = FragmentSearchBinding.inflate(inflater, container, false)
+        _mBinding = FragmentTrendsBinding.inflate(inflater, container, false)
         return mBinding.root
     }
 
