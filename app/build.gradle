@@ -79,8 +79,8 @@ dependencies {
     // Coil
     implementation "io.coil-kt:coil:2.2.2"
 
-    //okHttpClient Logging Interceptor
-    implementation 'com.squareup.okhttp3:logging-interceptor:4.9.1'
+    // Glide
+    implementation 'com.github.bumptech.glide:glide:4.15.0'
 
     // Hilt
     implementation "com.google.dagger:hilt-android:2.45"
