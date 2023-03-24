@@ -16,23 +16,24 @@
             app:destination="@id/postDetailsFragment" />
     </fragment>
     <fragment
-        android:id="@+id/searchFragment"
-        android:name="com.volie.twittercloneapp.view.fragment.TrendsFragment"
-        android:label="SearchFragment" />
+        android:id="@+id/trendsFragment"
+        android:name="com.volie.twittercloneapp.view.fragment.TrendsFragment" />
     <fragment
         android:id="@+id/notificationFragment"
         android:name="com.volie.twittercloneapp.view.fragment.NotificationFragment"
-        android:label="NotificationFragment" />
+        android:label="Notifications" />
     <fragment
         android:id="@+id/messageFragment"
-        android:name="com.volie.twittercloneapp.view.fragment.MessageFragment"
-        android:label="MessageFragment" />
+        android:name="com.volie.twittercloneapp.view.fragment.MessageFragment" />
     <fragment
         android:id="@+id/postDetailsFragment"
         android:name="com.volie.twittercloneapp.view.fragment.PostDetailsFragment"
-        android:label="PostDetailsFragment" />
+        android:label="Tweet">
+        <argument
+            android:name="home"
+            app:argType="com.volie.twittercloneapp.model.Home" />
+    </fragment>
     <fragment
         android:id="@+id/addPostFragment"
-        android:name="com.volie.twittercloneapp.view.fragment.AddPostFragment"
-        android:label="AddPostFragment" />
+        android:name="com.volie.twittercloneapp.view.fragment.AddPostFragment" />
 </navigation>

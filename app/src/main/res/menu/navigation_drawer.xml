@@ -22,6 +22,6 @@
         android:title="@string/list" />
     <item
         android:id="@+id/iv_twitter_circle_item"
-        android:icon="@drawable/ic_circle"
+        android:icon="@drawable/ic_circle2"
         android:title="@string/twitter_circle" />
 </menu>
