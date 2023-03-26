@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true"
@@ -13,7 +14,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-
         <com.makeramen.roundedimageview.RoundedImageView
             android:id="@+id/iv_profile"
             android:layout_width="32dp"
@@ -24,7 +24,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:riv_corner_radius="25dp" />
 
-        <TextView
+        <EditText
             android:id="@+id/tv_search"
             android:layout_width="0dp"
             android:layout_height="36dp"
@@ -46,10 +46,9 @@
             android:layout_height="32dp"
             android:layout_marginTop="12dp"
             android:layout_marginEnd="12dp"
-            android:src="@drawable/ic_setttings"
+            android:src="@drawable/ic_settings"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
-
 
         <com.google.android.material.divider.MaterialDivider
             android:id="@+id/divider"
@@ -60,15 +59,87 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_search" />
 
-        <ListView
-            android:id="@+id/lv_trends"
+        <TextView
+            android:id="@+id/tv_trends_for_you"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="12dp"
+            android:text="Trends for you"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/divider" />
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_trends_for_you"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:maxHeight="400dp"
+            android:layout_margin="12dp"
+            android:maxHeight="350dp"
+            android:orientation="vertical"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@id/divider" />
+            app:layout_constraintTop_toBottomOf="@id/tv_trends_for_you"
+            tools:listitem="@layout/trends_item" />
 
+        <TextView
+            android:id="@+id/tv_show_more"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="12dp"
+            android:text="Show More"
+            android:textColor="@color/twitter_blue"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/rv_trends_for_you" />
+
+        <com.google.android.material.divider.MaterialDivider
+            android:id="@+id/divider2"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="12dp"
+            app:layout_constraintTop_toBottomOf="@id/tv_show_more" />
+
+        <TextView
+            android:id="@+id/tv_videos_for_you"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="12dp"
+            android:text="Videos for you"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/divider2" />
+
+        <TextView
+            android:id="@+id/tv_videos_for_you_subtext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="12dp"
+            android:text="Check out these popular and trending videos for you"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_videos_for_you" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_videos_for_you"
+            android:layout_width="0dp"
+            android:layout_height="200dp"
+            android:layout_margin="12dp"
+            android:orientation="horizontal"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_videos_for_you_subtext"
+            tools:listitem="@layout/trends_video_item" />
+
+        <com.google.android.material.divider.MaterialDivider
+            android:layout_width="wrap_content"
+            android:layout_height="1dp"
+            android:layout_marginTop="12dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/rv_videos_for_you" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
