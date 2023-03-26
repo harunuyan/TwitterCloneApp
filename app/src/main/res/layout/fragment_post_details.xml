@@ -123,6 +123,7 @@
                 app:layout_constraintTop_toTopOf="@id/tv_post_retweet" />
 
             <TextView
+                android:id="@+id/tv_post_like"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="15dp"
