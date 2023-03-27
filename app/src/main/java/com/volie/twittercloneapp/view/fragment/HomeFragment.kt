@@ -7,8 +7,10 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import com.google.android.material.tabs.TabLayoutMediator
 import com.volie.twittercloneapp.databinding.FragmentHomeBinding
 import com.volie.twittercloneapp.view.adapter.HomeAdapter
+import com.volie.twittercloneapp.view.adapter.HomeViewPagerAdapter
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -31,6 +33,7 @@ class HomeFragment : Fragment() {
         _mBinding = FragmentHomeBinding.inflate(inflater, container, false)
         mViewModel.getPost(requireContext())
         mBinding.rvHome.adapter = mAdapter
+        setupViewPager()
         return mBinding.root
     }
 
@@ -41,6 +44,16 @@ class HomeFragment : Fragment() {
             findNavController().navigate(action)
         }
         observeLiveData()
+    }
+
+    private fun setupViewPager() {
+        mBinding.viewPagerHome.adapter = HomeViewPagerAdapter(requireActivity())
+        TabLayoutMediator(mBinding.tabLayoutHome, mBinding.viewPagerHome) { tab, position ->
+            when (position) {
+                0 -> tab.text = "For you"
+                1 -> tab.text = "Following"
+            }
+        }.attach()
     }
 
     private fun observeLiveData() {
