@@ -11,7 +11,7 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
 @HiltViewModel
-class HomeViewModel
+class ForYouViewModel
 @Inject constructor() : ViewModel() {
 
     val listPost = MutableLiveData<List<Home>>()

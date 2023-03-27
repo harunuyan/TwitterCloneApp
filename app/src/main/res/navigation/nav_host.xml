@@ -36,4 +36,8 @@
     <fragment
         android:id="@+id/addPostFragment"
         android:name="com.volie.twittercloneapp.view.fragment.AddPostFragment" />
+    <fragment
+        android:id="@+id/forYouHomeFragment"
+        android:name="com.volie.twittercloneapp.view.fragment.ForYouHomeFragment"
+        android:label="ForYouHomeFragment" />
 </navigation>
