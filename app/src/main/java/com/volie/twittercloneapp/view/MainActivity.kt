@@ -39,6 +39,8 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(mBinding.toolbar)
         setupBottomNavigation()
         setupDrawerLayout()
+
+        mBinding.navigationView.itemIconTintList = null
     }
 
     private fun setupDrawerLayout() {
@@ -67,6 +69,7 @@ class MainActivity : AppCompatActivity() {
 
                 R.id.trendsFragment -> {
                     mBinding.toolbar.visibility = View.GONE
+                    mBinding.bottomNavigationView.visibility = View.VISIBLE
                 }
 
                 R.id.messageFragment -> {
@@ -79,6 +82,7 @@ class MainActivity : AppCompatActivity() {
                 }
                 else -> {
                     mBinding.toolbar.visibility = View.VISIBLE
+                    mBinding.bottomNavigationView.visibility = View.VISIBLE
                 }
             }
         }

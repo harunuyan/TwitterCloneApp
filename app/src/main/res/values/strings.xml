@@ -7,4 +7,7 @@
     <string name="twitter_blue">Twitter Blue</string>
     <string name="twitter_circle">Twitter Circle</string>
     <string name="search_twitter">Search Twitter</string>
+    <string name="choose_audience">Choose audience</string>
+    <string name="edit">Edit</string>
+    <string name="search_direct_messages">Search Direct Messages</string>
 </resources>
