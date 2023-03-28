@@ -32,8 +32,8 @@
 
             <com.makeramen.roundedimageview.RoundedImageView
                 android:id="@+id/iv_profile"
-                android:layout_width="32dp"
-                android:layout_height="32dp"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
                 android:layout_margin="12dp"
                 android:src="@color/black"
                 app:layout_constraintStart_toStartOf="parent"
@@ -58,8 +58,8 @@
 
             <ImageView
                 android:id="@+id/iv_settings"
-                android:layout_width="32dp"
-                android:layout_height="32dp"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
                 android:layout_marginTop="12dp"
                 android:layout_marginEnd="12dp"
                 android:src="@drawable/ic_settings"
@@ -98,7 +98,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tv_trends_for_you"
-                tools:listitem="@layout/trends_item" />
+                tools:listitem="@layout/trend_item" />
 
             <TextView
                 android:id="@+id/tv_show_more"
@@ -147,7 +147,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tv_videos_for_you_subtext"
-                tools:listitem="@layout/trends_video_item" />
+                tools:listitem="@layout/trend_video_item" />
 
             <com.google.android.material.divider.MaterialDivider
                 android:layout_width="wrap_content"

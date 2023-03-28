@@ -4,7 +4,6 @@ package com.volie.twittercloneapp.view.adapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
@@ -46,20 +45,18 @@ class HomeAdapter(
                     onItemClick(item)
                 }
                 ivPostLike.setOnClickListener {
-                    if (item.isLiked) {
-                        tvPostLike.text = (item.like - 1).toString()
-                        ivPostLike.setImageResource(R.drawable.ic_like)
-                        currentList[position].isLiked = false
-                    } else {
-                        tvPostLike.text = (item.like + 1).toString()
+                    if (item.isLiked!!) {
+                        tvPostLike.text = (item.like?.plus(1)).toString()
                         ivPostLike.setImageResource(R.drawable.ic_liked)
                         currentList[position].isLiked = true
+                    } else {
+                        tvPostLike.text = (item.like?.minus(1)).toString()
+                        ivPostLike.setImageResource(R.drawable.ic_like)
+                        currentList[position].isLiked = false
                     }
                 }
             }
-
         }
-
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HomeViewHolder {

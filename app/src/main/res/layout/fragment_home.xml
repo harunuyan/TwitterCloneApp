@@ -27,8 +27,10 @@
                 android:layout_height="0dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tabLayout_home" />
+                app:layout_constraintTop_toBottomOf="@id/tabLayout_home"
+                app:layout_constraintVertical_bias="0.0" />
 
             <FrameLayout
                 android:id="@+id/fl_home"
@@ -40,8 +42,8 @@
 
                 <com.makeramen.roundedimageview.RoundedImageView
                     android:id="@+id/iv_profile_photo"
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
                     android:layout_margin="12dp"
                     android:src="@color/black"
                     app:riv_corner_radius="25dp" />

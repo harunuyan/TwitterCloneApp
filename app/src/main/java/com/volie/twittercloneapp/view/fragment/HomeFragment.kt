@@ -5,11 +5,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.tabs.TabLayoutMediator
 import com.volie.twittercloneapp.databinding.FragmentHomeBinding
-import com.volie.twittercloneapp.view.adapter.HomeAdapter
 import com.volie.twittercloneapp.view.adapter.HomeViewPagerAdapter
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -17,13 +15,6 @@ import dagger.hilt.android.AndroidEntryPoint
 class HomeFragment : Fragment() {
     private var _mBinding: FragmentHomeBinding? = null
     private val mBinding get() = _mBinding!!
-    private val mViewModel: HomeViewModel by viewModels()
-    private val mAdapter by lazy {
-        HomeAdapter {
-            val action = HomeFragmentDirections.actionHomeFragmentToPostDetailsFragment(it)
-            findNavController().navigate(action)
-        }
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -31,8 +22,6 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _mBinding = FragmentHomeBinding.inflate(inflater, container, false)
-        mViewModel.getPost(requireContext())
-        mBinding.rvHome.adapter = mAdapter
         setupViewPager()
         return mBinding.root
     }
@@ -43,7 +32,6 @@ class HomeFragment : Fragment() {
             val action = HomeFragmentDirections.actionHomeFragmentToAddPostFragment()
             findNavController().navigate(action)
         }
-        observeLiveData()
     }
 
     private fun setupViewPager() {
@@ -54,12 +42,6 @@ class HomeFragment : Fragment() {
                 1 -> tab.text = "Following"
             }
         }.attach()
-    }
-
-    private fun observeLiveData() {
-        mViewModel.listPost.observe(viewLifecycleOwner) {
-            mAdapter.submitList(it)
-        }
     }
 
     override fun onDestroy() {

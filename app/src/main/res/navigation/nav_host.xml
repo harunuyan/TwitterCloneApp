@@ -17,11 +17,19 @@
     </fragment>
     <fragment
         android:id="@+id/trendsFragment"
-        android:name="com.volie.twittercloneapp.view.fragment.TrendsFragment" />
+        android:name="com.volie.twittercloneapp.view.fragment.TrendsFragment" >
+        <action
+            android:id="@+id/action_trendsFragment_to_addPostFragment"
+            app:destination="@id/addPostFragment" />
+    </fragment>
     <fragment
         android:id="@+id/notificationFragment"
         android:name="com.volie.twittercloneapp.view.fragment.NotificationFragment"
-        android:label="Notifications" />
+        android:label="Notifications" >
+        <action
+            android:id="@+id/action_notificationFragment_to_addPostFragment"
+            app:destination="@id/addPostFragment" />
+    </fragment>
     <fragment
         android:id="@+id/messageFragment"
         android:name="com.volie.twittercloneapp.view.fragment.MessageFragment" />
