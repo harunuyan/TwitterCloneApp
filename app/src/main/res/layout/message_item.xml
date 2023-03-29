@@ -39,13 +39,22 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
+        android:id="@+id/tv_nickname_message"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="anickname"
+        app:layout_constraintStart_toEndOf="@id/tv_username_message"
+        app:layout_constraintTop_toTopOf="@id/tv_username_message" />
+
+    <TextView
         android:id="@+id/tv_time_message"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:text="36m"
-        app:layout_constraintStart_toEndOf="@id/tv_username_message"
-        app:layout_constraintTop_toTopOf="@id/tv_username_message" />
+        app:layout_constraintStart_toEndOf="@id/tv_nickname_message"
+        app:layout_constraintTop_toTopOf="@id/tv_nickname_message" />
 
     <TextView
         android:id="@+id/tv_message"
