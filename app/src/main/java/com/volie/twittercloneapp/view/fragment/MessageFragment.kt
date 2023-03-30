@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.volie.twittercloneapp.databinding.FragmentMessageBinding
 import com.volie.twittercloneapp.view.adapter.MessageAdapter
+import com.volie.twittercloneapp.view.fragment.viewmodel.MessageViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -31,14 +32,6 @@ class MessageFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         mBinding.rvMessages.adapter = mAdapter
-        mViewModel.getMessage(requireContext())
-        observeLiveData()
-    }
-
-    private fun observeLiveData() {
-        mViewModel.listMessage.observe(viewLifecycleOwner) {
-            mAdapter.submitList(it)
-        }
     }
 
     override fun onDestroy() {

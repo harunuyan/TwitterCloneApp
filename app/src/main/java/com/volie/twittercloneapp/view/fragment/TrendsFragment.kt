@@ -14,6 +14,7 @@ import com.volie.twittercloneapp.databinding.FragmentTrendsBinding
 import com.volie.twittercloneapp.view.MainActivity
 import com.volie.twittercloneapp.view.adapter.TrendAdapter
 import com.volie.twittercloneapp.view.adapter.TrendVideoAdapter
+import com.volie.twittercloneapp.view.fragment.viewmodel.TrendsViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -42,19 +43,14 @@ class TrendsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-
-
         mBinding.fabTrends.setOnClickListener {
             val action = TrendsFragmentDirections.actionTrendsFragmentToAddPostFragment()
             findNavController().navigate(action)
         }
 
         mBinding.rvTrendsForYou.adapter = mAdapterTrends
-        mBinding.rvVideosForYou.adapter = mAdapterVideos
 
-        mViewModel.getVideo(requireContext())
-        mViewModel.getTrend(requireContext())
-        observeLiveData()
+        mBinding.rvVideosForYou.adapter = mAdapterVideos
     }
 
     override fun onAttach(context: Context) {
@@ -65,7 +61,6 @@ class TrendsFragment : Fragment() {
                 if (onBack) {
                     onBack = false
                     showView()
-                    observeLiveData()
                 } else {
                     isEnabled = false
                     findNavController().navigateUp()
@@ -112,21 +107,6 @@ class TrendsFragment : Fragment() {
         with((activity as MainActivity)) {
             mBinding.toolbar.visibility = View.VISIBLE
             mBinding.bottomNavigationView.visibility = View.GONE
-        }
-    }
-
-    private fun observeLiveData() {
-        mViewModel.listVideo.observe(viewLifecycleOwner) {
-            mAdapterVideos.submitList(it)
-        }
-
-        mViewModel.listTrend.observe(viewLifecycleOwner) {
-            mAdapterTrends.subList(it)
-            mBinding.tvShowMore.setOnClickListener { view ->
-                onBack = true
-                hideView()
-                mAdapterTrends.submitList(it)
-            }
         }
     }
 

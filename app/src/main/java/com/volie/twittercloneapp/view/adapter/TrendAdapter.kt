@@ -10,7 +10,7 @@ import com.volie.twittercloneapp.model.Trend
 
 class TrendAdapter : ListAdapter<Trend, TrendAdapter.TrendViewHolder>(TrendItemCallBack()) {
 
-    // create sublist
+    // Sublist
     fun subList(list: List<Trend>) {
         val newList = list.subList(0, 5)
         super.submitList(newList)
@@ -20,12 +20,7 @@ class TrendAdapter : ListAdapter<Trend, TrendAdapter.TrendViewHolder>(TrendItemC
     inner class TrendViewHolder(private val binding: TrendItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(position: Int) {
-            val item = currentList[position]
-            with(binding) {
-                tvTrendsSubjectItem.text = item.subject
-                tvTrendsTagItem.text = item.tag
-                tvTrendsTweetCountItem.text = item.count
-            }
+
         }
     }
 

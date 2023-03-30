@@ -1,12 +1,10 @@
 package com.volie.twittercloneapp.view.adapter
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
 import com.volie.twittercloneapp.databinding.TrendVideoItemBinding
 import com.volie.twittercloneapp.model.TrendVideo
 
@@ -18,16 +16,7 @@ class TrendVideoAdapter :
     inner class TrendVideoAdapterViewHolder(private val binding: TrendVideoItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(position: Int) {
-            val item = currentList[position]
-            with(binding) {
-                if (ivVideoItem != null) {
-                    Glide.with(ivVideoItem.context)
-                        .load(item.video)
-                        .into(ivVideoItem)
-                } else {
-                    ivVideoItem.visibility = View.GONE
-                }
-            }
+
         }
     }
 

@@ -5,9 +5,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import coil.load
-import com.volie.twittercloneapp.R
+import androidx.fragment.app.viewModels
 import com.volie.twittercloneapp.databinding.FragmentPostDetailsBinding
+import com.volie.twittercloneapp.view.adapter.PostDetailsAdapter
+import com.volie.twittercloneapp.view.fragment.viewmodel.PostDetailsViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -15,6 +16,10 @@ class PostDetailsFragment : Fragment() {
     private var _mBinding: FragmentPostDetailsBinding? = null
     private val mBinding get() = _mBinding!!
     private lateinit var mArgs: PostDetailsFragmentArgs
+    private val mViewModel: PostDetailsViewModel by viewModels()
+    private val mAdapter by lazy {
+        PostDetailsAdapter()
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -30,28 +35,7 @@ class PostDetailsFragment : Fragment() {
         arguments?.let {
             mArgs = PostDetailsFragmentArgs.fromBundle(it)
         }
-        setDetails()
-    }
-
-    private fun setDetails() {
-        val args = mArgs.home
-        if (args != null) {
-            with(mBinding) {
-                ivPostPhoto.load(args.postImage)
-                ivProfilePhoto.load(args.profileImage)
-                if (args.isLiked) {
-                    ivPostLike.setImageResource(R.drawable.ic_liked)
-                } else {
-                    ivPostLike.setImageResource(R.drawable.ic_like)
-                }
-                tvUsername.text = args.username
-                tvNickname.text = args.nickname
-                tvPostQuote.text = args.quote
-                tvPostText.text = args.postText
-                tvPostTimeView.text = args.time
-            }
-            return
-        }
+        mBinding.rvPostDetailComments.adapter = mAdapter
     }
 
     override fun onDestroyView() {

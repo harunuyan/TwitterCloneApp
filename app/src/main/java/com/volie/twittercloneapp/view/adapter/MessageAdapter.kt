@@ -5,7 +5,6 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
 import com.volie.twittercloneapp.databinding.MessageItemBinding
 import com.volie.twittercloneapp.model.Message
 
@@ -14,16 +13,7 @@ class MessageAdapter :
     inner class MessageAdapterViewHolder(private val binding: MessageItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(position: Int) {
-            val item = currentList[position]
-            with(binding) {
-                Glide.with(root.context)
-                    .load(item.profilePhoto)
-                    .into(ivProfilePhotoMessage)
-                tvMessage.text = item.message
-                tvTimeMessage.text = item.time
-                tvUsernameMessage.text = item.senderName
-                tvNicknameMessage.text = item.senderNickname
-            }
+
         }
 
     }

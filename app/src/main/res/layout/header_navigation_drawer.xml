@@ -6,7 +6,7 @@
     android:fitsSystemWindows="true">
 
     <com.makeramen.roundedimageview.RoundedImageView
-        android:id="@+id/ivProfile_drawer"
+        android:id="@+id/iv_profile_drawer"
         android:layout_width="48dp"
         android:layout_height="48dp"
         android:layout_margin="24dp"
@@ -16,7 +16,7 @@
         app:riv_corner_radius="25dp" />
 
     <TextView
-        android:id="@+id/tvName_drawer"
+        android:id="@+id/tv_name_drawer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
@@ -24,8 +24,8 @@
         android:textColor="@color/black"
         android:textSize="16sp"
         android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@+id/ivProfile_drawer"
-        app:layout_constraintTop_toBottomOf="@+id/ivProfile_drawer" />
+        app:layout_constraintStart_toStartOf="@+id/iv_profile_drawer"
+        app:layout_constraintTop_toBottomOf="@+id/iv_profile_drawer" />
 
     <TextView
         android:id="@+id/tv_nickname_drawer"
@@ -34,18 +34,18 @@
         android:text="aharunuyan"
         android:textColor="@color/black"
         android:textSize="14sp"
-        app:layout_constraintStart_toStartOf="@+id/ivProfile_drawer"
-        app:layout_constraintTop_toBottomOf="@+id/tvName_drawer" />
+        app:layout_constraintStart_toStartOf="@+id/iv_profile_drawer"
+        app:layout_constraintTop_toBottomOf="@+id/tv_name_drawer" />
 
     <TextView
         android:id="@+id/tv_following_drawer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
-        android:text="102 Following"
+        android:text="@string/following"
         android:textColor="@color/black"
         android:textSize="14sp"
-        app:layout_constraintStart_toStartOf="@+id/ivProfile_drawer"
+        app:layout_constraintStart_toStartOf="@+id/iv_profile_drawer"
         app:layout_constraintTop_toBottomOf="@+id/tv_nickname_drawer" />
 
     <TextView
@@ -53,7 +53,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
-        android:text="20 Followers"
+        android:text="@string/followers"
         android:textColor="@color/black"
         android:textSize="14sp"
         app:layout_constraintStart_toEndOf="@id/tv_following_drawer"
@@ -75,7 +75,7 @@
         android:layout_marginEnd="24dp"
         android:src="@drawable/ic_more"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@id/ivProfile_drawer" />
+        app:layout_constraintTop_toTopOf="@id/iv_profile_drawer" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

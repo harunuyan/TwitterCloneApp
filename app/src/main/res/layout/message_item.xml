@@ -33,7 +33,7 @@
         android:layout_margin="14dp"
         android:text="Agalar.trim() ."
         android:textColor="@color/black"
-        android:textSize="14dp"
+        android:textSize="14sp"
         android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@id/cv_message_item"
         app:layout_constraintTop_toTopOf="parent" />

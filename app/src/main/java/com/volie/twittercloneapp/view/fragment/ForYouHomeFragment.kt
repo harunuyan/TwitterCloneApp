@@ -9,6 +9,7 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.volie.twittercloneapp.databinding.FragmentForYouBinding
 import com.volie.twittercloneapp.view.adapter.HomeAdapter
+import com.volie.twittercloneapp.view.fragment.viewmodel.ForYouViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -37,15 +38,8 @@ class ForYouHomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         mBinding.rvForYou.adapter = mAdapter
-        mViewModel.getPost(requireContext())
-        observeLiveData()
     }
 
-    private fun observeLiveData() {
-        mViewModel.listPost.observe(viewLifecycleOwner) {
-            mAdapter.submitList(it)
-        }
-    }
 
     override fun onDestroyView() {
         super.onDestroyView()
