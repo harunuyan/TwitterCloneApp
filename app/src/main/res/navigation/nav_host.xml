@@ -2,7 +2,7 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/nav_host"
-    app:startDestination="@id/homeFragment">
+    app:startDestination="@id/accountFragment">
 
     <fragment
         android:id="@+id/homeFragment"
@@ -31,9 +31,6 @@
             app:destination="@id/addPostFragment" />
     </fragment>
     <fragment
-        android:id="@+id/messageFragment"
-        android:name="com.volie.twittercloneapp.view.fragment.MessageFragment" />
-    <fragment
         android:id="@+id/postDetailsFragment"
         android:name="com.volie.twittercloneapp.view.fragment.PostDetailsFragment"
         android:label="Tweet">
@@ -45,7 +42,29 @@
         android:id="@+id/addPostFragment"
         android:name="com.volie.twittercloneapp.view.fragment.AddPostFragment" />
     <fragment
-        android:id="@+id/forYouHomeFragment"
-        android:name="com.volie.twittercloneapp.view.fragment.ForYouHomeFragment"
-        android:label="ForYouHomeFragment" />
+        android:id="@+id/signInFragment"
+        android:name="com.volie.twittercloneapp.view.fragment.SignInFragment"
+        android:label="SignInFragment" />
+    <fragment
+        android:id="@+id/accountFragment"
+        android:name="com.volie.twittercloneapp.view.fragment.AccountFragment"
+        android:label="AccountFragment" >
+        <action
+            android:id="@+id/action_accountFragment_to_signInFragment"
+            app:destination="@id/signInFragment" />
+        <action
+            android:id="@+id/action_accountFragment_to_logInFragment"
+            app:destination="@id/logInFragment" />
+        <action
+            android:id="@+id/action_accountFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/logInFragment"
+        android:name="com.volie.twittercloneapp.view.fragment.LogInFragment"
+        android:label="LogInFragment" >
+        <action
+            android:id="@+id/action_logInFragment_to_accountFragment"
+            app:destination="@id/accountFragment" />
+    </fragment>
 </navigation>

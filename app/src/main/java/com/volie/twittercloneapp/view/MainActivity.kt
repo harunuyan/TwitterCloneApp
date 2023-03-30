@@ -67,6 +67,21 @@ class MainActivity : AppCompatActivity() {
                     mBinding.toolbar.visibility = View.VISIBLE
                 }
 
+                R.id.accountFragment -> {
+                    mBinding.bottomNavigationView.visibility = View.GONE
+                    mBinding.toolbar.visibility = View.GONE
+                }
+
+                R.id.signInFragment -> {
+                    mBinding.bottomNavigationView.visibility = View.GONE
+                    mBinding.toolbar.visibility = View.GONE
+                }
+
+                R.id.logInFragment -> {
+                    mBinding.bottomNavigationView.visibility = View.GONE
+                    mBinding.toolbar.visibility = View.GONE
+                }
+
                 R.id.trendsFragment -> {
                     mBinding.toolbar.visibility = View.GONE
                     mBinding.bottomNavigationView.visibility = View.VISIBLE
