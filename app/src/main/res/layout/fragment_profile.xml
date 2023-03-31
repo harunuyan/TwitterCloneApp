@@ -1,7 +1,202 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cl_profile"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+
+
+    <ImageView
+        android:id="@+id/iv_profile_header"
+        android:layout_width="match_parent"
+        android:layout_height="140dp"
+        android:src="@color/twitter_blue"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cv_profile"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginBottom="-38dp"
+        app:cardCornerRadius="400dp"
+        app:layout_constraintBottom_toBottomOf="@id/iv_profile_header"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <com.makeramen.roundedimageview.RoundedImageView
+            android:id="@+id/iv_profile"
+            android:layout_width="76dp"
+            android:layout_height="76dp"
+            android:layout_gravity="center"
+            android:padding="2dp"
+            android:src="@color/black"
+            app:layout_constraintBottom_toBottomOf="@+id/iv_profile_header"
+            app:layout_constraintStart_toStartOf="@id/cl_profile"
+            app:riv_corner_radius="400dp" />
+
+    </androidx.cardview.widget.CardView>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_edit_profile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="12dp"
+        android:backgroundTint="@color/white"
+        android:hint="@string/edit_profile"
+        android:textColorHint="@color/black"
+        android:textStyle="bold"
+        app:cornerRadius="25dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/iv_profile_header" />
+
+    <TextView
+        android:id="@+id/tv_username_profile"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="Harun"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@id/cv_profile"
+        app:layout_constraintTop_toBottomOf="@id/cv_profile" />
+
+    <TextView
+        android:id="@+id/tv_nickname_profile"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="aharunuyan_"
+        android:textSize="15sp"
+        app:layout_constraintStart_toStartOf="@id/cv_profile"
+        app:layout_constraintTop_toBottomOf="@id/tv_username_profile" />
+
+    <TextView
+        android:id="@+id/tv_biography_profile"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="bioagraphy"
+        android:textSize="15sp"
+        app:layout_constraintStart_toStartOf="@id/cv_profile"
+        app:layout_constraintTop_toBottomOf="@id/tv_nickname_profile" />
+
+    <ImageView
+        android:id="@+id/iv_location"
+        android:layout_width="18dp"
+        android:layout_height="18dp"
+        android:layout_marginTop="6dp"
+        android:src="@drawable/ic_location_dark"
+        app:layout_constraintStart_toStartOf="@id/cv_profile"
+        app:layout_constraintTop_toBottomOf="@id/tv_biography_profile" />
+
+    <TextView
+        android:id="@+id/tv_location_profile"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:text="Ankara"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="@id/iv_location"
+        app:layout_constraintStart_toEndOf="@id/iv_location"
+        app:layout_constraintTop_toTopOf="@id/iv_location" />
+
+    <ImageView
+        android:id="@+id/iv_calendar"
+        android:layout_width="18dp"
+        android:layout_height="18dp"
+        android:layout_marginStart="12dp"
+        android:src="@drawable/ic_calendar"
+        app:layout_constraintBottom_toBottomOf="@id/iv_location"
+        app:layout_constraintStart_toEndOf="@id/tv_location_profile"
+        app:layout_constraintTop_toTopOf="@id/iv_location" />
+
+    <TextView
+        android:id="@+id/tv_joined_profile"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:text="Joined"
+        app:layout_constraintBottom_toBottomOf="@id/tv_location_profile"
+        app:layout_constraintStart_toEndOf="@+id/iv_calendar"
+        app:layout_constraintTop_toTopOf="@id/tv_location_profile" />
+
+    <TextView
+        android:id="@+id/tv_following_profile"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:text="@string/following"
+        app:layout_constraintStart_toStartOf="@id/tv_username_profile"
+        app:layout_constraintTop_toBottomOf="@id/tv_location_profile" />
+
+    <TextView
+        android:id="@+id/tv_followers_profile"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:text="@string/followers"
+        app:layout_constraintStart_toEndOf="@id/tv_following_profile"
+        app:layout_constraintTop_toTopOf="@id/tv_following_profile" />
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tab_layout_profile"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_following_profile" />
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/vp_profile"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tab_layout_profile" />
+
+    <ImageView
+        android:id="@+id/iv_back_profile"
+        android:layout_width="44dp"
+        android:layout_height="44dp"
+        android:layout_margin="12dp"
+        android:src="@drawable/ic_back_circle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/iv_search_profile"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:layout_marginEnd="12dp"
+        android:background="@drawable/search_background"
+        android:backgroundTint="@color/grayS"
+        android:src="@drawable/ic_search"
+        app:layout_constraintEnd_toStartOf="@id/iv_more_profile"
+        app:layout_constraintTop_toTopOf="@id/iv_more_profile" />
+
+    <ImageView
+        android:id="@+id/iv_more_profile"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:layout_margin="12dp"
+        android:background="@drawable/search_background"
+        android:backgroundTint="@color/grayS"
+        android:src="@drawable/ic_more_white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="16dp"
+        android:backgroundTint="@color/twitter_blue"
+        android:src="@drawable/ic_tweet"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:tint="@color/white" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
