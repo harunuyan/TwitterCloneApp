@@ -34,7 +34,7 @@ class AddPostFragment : Fragment() {
             val bottomSheetDialog =
                 BottomSheetDialog(requireContext(), R.style.BottomSheetDialogTheme)
             val bottomSheetView = LayoutInflater.from(requireContext())
-                .inflate(R.layout.layout_bottom_sheet_add_post, mBinding.root, false)
+                .inflate(R.layout.layout_bottom_sheet_choose_audience, mBinding.root, false)
             bottomSheetDialog.setContentView(bottomSheetView)
             bottomSheetDialog.show()
         }
