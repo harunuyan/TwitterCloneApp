@@ -13,6 +13,7 @@ import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.elevation.SurfaceColors
 import com.volie.twittercloneapp.R
 import com.volie.twittercloneapp.databinding.ActivityMainBinding
+import com.volie.twittercloneapp.view.fragment.ProfileFragment
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -50,6 +51,19 @@ class MainActivity : AppCompatActivity() {
         navController = navHostFragment.navController
         mBinding.navigationView.setupWithNavController(navController)
         setupActionBarWithNavController(navController, appBarConfiguration)
+
+        mBinding.navigationView.setNavigationItemSelectedListener {
+            when (it.itemId) {
+                R.id.profileFragment -> {
+                    supportFragmentManager.beginTransaction()
+                        .replace(R.id.nav_host_fragment, ProfileFragment())
+                        .commit()
+                }
+            }
+            mBinding.drawerLayout.close()
+            true
+        }
+
     }
 
     private fun setupBottomNavigation() {
@@ -91,6 +105,11 @@ class MainActivity : AppCompatActivity() {
                     mBinding.toolbar.visibility = View.GONE
                 }
 
+                R.id.profileFragment -> {
+                    mBinding.toolbar.visibility = View.GONE
+                    mBinding.bottomNavigationView.visibility = View.GONE
+                }
+
                 R.id.homeFragment -> {
                     mBinding.toolbar.visibility = View.GONE
                     mBinding.bottomNavigationView.visibility = View.VISIBLE
@@ -124,9 +143,20 @@ class MainActivity : AppCompatActivity() {
         return NavigationUI.navigateUp(navController, mBinding.drawerLayout)
     }
 
-
     override fun onDestroy() {
         super.onDestroy()
         _mBinding = null
     }
+
+//    override fun onNavigationItemSelected(item: MenuItem): Boolean {
+//        when (item.itemId) {
+//            R.id.profileFragment -> {
+//                supportFragmentManager.beginTransaction()
+//                    .replace(R.id.nav_host_fragment, ProfileFragment())
+//                    .commit()
+//            }
+//        }
+//        mBinding.drawerLayout.close()
+//        return true
+//    }
 }

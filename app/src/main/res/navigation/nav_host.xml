@@ -48,7 +48,7 @@
     <fragment
         android:id="@+id/accountFragment"
         android:name="com.volie.twittercloneapp.view.fragment.AccountFragment"
-        android:label="AccountFragment" >
+        android:label="AccountFragment">
         <action
             android:id="@+id/action_accountFragment_to_signInFragment"
             app:destination="@id/signInFragment" />
@@ -62,9 +62,20 @@
     <fragment
         android:id="@+id/logInFragment"
         android:name="com.volie.twittercloneapp.view.fragment.LogInFragment"
-        android:label="LogInFragment" >
+        android:label="LogInFragment">
         <action
             android:id="@+id/action_logInFragment_to_accountFragment"
             app:destination="@id/accountFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.volie.twittercloneapp.view.fragment.ProfileFragment"
+        android:label="ProfileFragment">
+        <argument
+            android:name="user"
+            app:argType="com.volie.twittercloneapp.model.User" />
+        <action
+            android:id="@+id/action_profileFragment_to_postDetailsFragment"
+            app:destination="@id/postDetailsFragment" />
     </fragment>
 </navigation>
