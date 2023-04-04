@@ -5,7 +5,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.bumptech.glide.Glide
 import com.google.android.material.bottomsheet.BottomSheetDialog
+import com.google.firebase.auth.FirebaseAuth
 import com.volie.twittercloneapp.R
 import com.volie.twittercloneapp.databinding.FragmentAddPostBinding
 import dagger.hilt.android.AndroidEntryPoint
@@ -26,6 +28,9 @@ class AddPostFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        val user = FirebaseAuth.getInstance().currentUser
+
         mBinding.ivBack.setOnClickListener {
             requireActivity().onBackPressedDispatcher.onBackPressed()
         }
@@ -38,6 +43,10 @@ class AddPostFragment : Fragment() {
             bottomSheetDialog.setContentView(bottomSheetView)
             bottomSheetDialog.show()
         }
+
+        Glide.with(requireContext())
+            .load(user?.photoUrl)
+            .into(mBinding.imgProfile)
     }
 
     override fun onDestroyView() {

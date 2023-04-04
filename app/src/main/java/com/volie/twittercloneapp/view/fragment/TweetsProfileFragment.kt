@@ -28,6 +28,12 @@ class TweetsProfileFragment : Fragment() {
         return mBinding.root
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        mBinding.rvTweetsProfile.adapter = mAdapter
+    }
+
     override fun onDestroyView() {
         super.onDestroyView()
         _mBinding = null

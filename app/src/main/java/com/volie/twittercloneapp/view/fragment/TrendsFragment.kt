@@ -9,6 +9,8 @@ import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import com.bumptech.glide.Glide
+import com.google.firebase.auth.FirebaseAuth
 import com.volie.twittercloneapp.R
 import com.volie.twittercloneapp.databinding.FragmentTrendsBinding
 import com.volie.twittercloneapp.view.MainActivity
@@ -27,6 +29,9 @@ class TrendsFragment : Fragment() {
     }
     private val mAdapterTrends by lazy {
         TrendAdapter()
+    }
+    private val firebaseAuth by lazy {
+        FirebaseAuth.getInstance()
     }
 
     private var onBack = false
@@ -49,8 +54,16 @@ class TrendsFragment : Fragment() {
         }
 
         mBinding.rvTrendsForYou.adapter = mAdapterTrends
-
         mBinding.rvVideosForYou.adapter = mAdapterVideos
+
+        Glide.with(requireContext())
+            .load(firebaseAuth.currentUser?.photoUrl)
+            .into(mBinding.ivProfile)
+
+        mBinding.ivProfile.setOnClickListener {
+            val mActivity = requireActivity() as MainActivity
+            mActivity.mBinding.drawerLayout.open()
+        }
     }
 
     override fun onAttach(context: Context) {

@@ -6,8 +6,11 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import com.bumptech.glide.Glide
 import com.google.android.material.tabs.TabLayoutMediator
+import com.google.firebase.auth.FirebaseAuth
 import com.volie.twittercloneapp.databinding.FragmentHomeBinding
+import com.volie.twittercloneapp.view.MainActivity
 import com.volie.twittercloneapp.view.adapter.HomeViewPagerAdapter
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -15,6 +18,9 @@ import dagger.hilt.android.AndroidEntryPoint
 class HomeFragment : Fragment() {
     private var _mBinding: FragmentHomeBinding? = null
     private val mBinding get() = _mBinding!!
+    private val firebaseAuth by lazy {
+        FirebaseAuth.getInstance()
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -28,9 +34,19 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         mBinding.fabHome.setOnClickListener {
             val action = HomeFragmentDirections.actionHomeFragmentToAddPostFragment()
             findNavController().navigate(action)
+        }
+
+        Glide.with(requireContext())
+            .load(firebaseAuth.currentUser?.photoUrl)
+            .into(mBinding.ivProfilePhoto)
+
+        mBinding.ivProfilePhoto.setOnClickListener {
+            val mActivity = requireActivity() as MainActivity
+            mActivity.mBinding.drawerLayout.open()
         }
     }
 
