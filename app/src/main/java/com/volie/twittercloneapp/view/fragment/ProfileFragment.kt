@@ -5,10 +5,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
 import com.google.android.material.tabs.TabLayoutMediator
 import com.google.firebase.auth.FirebaseAuth
 import com.volie.twittercloneapp.databinding.FragmentProfileBinding
+import com.volie.twittercloneapp.util.DateUtils
 import com.volie.twittercloneapp.view.adapter.ProfileViewPagerAdapter
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -16,7 +18,6 @@ import dagger.hilt.android.AndroidEntryPoint
 class ProfileFragment : Fragment() {
     private var _mBinding: FragmentProfileBinding? = null
     private val mBinding get() = _mBinding!!
-    private val args = ProfileFragmentArgs
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -43,10 +44,14 @@ class ProfileFragment : Fragment() {
                         ?.lowercase()
                         ?.replace(" ", "")
                 }"
+                tvJoinedProfile.text =
+                    "Joined ${DateUtils.getFormatDate(System.currentTimeMillis())}"
             }
-
         }
-
+        mBinding.fabTweetProfile.setOnClickListener {
+            val action = ProfileFragmentDirections.actionProfileFragmentToAddPostFragment()
+            findNavController().navigate(action)
+        }
         setupViewPager()
     }
 

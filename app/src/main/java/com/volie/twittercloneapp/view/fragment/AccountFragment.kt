@@ -18,7 +18,6 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
 import com.volie.twittercloneapp.R
 import com.volie.twittercloneapp.databinding.FragmentAccountBinding
-import com.volie.twittercloneapp.model.User
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -35,9 +34,7 @@ class AccountFragment : Fragment() {
     }
 
     override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
         _mBinding = FragmentAccountBinding.inflate(inflater, container, false)
         return mBinding.root
@@ -48,9 +45,7 @@ class AccountFragment : Fragment() {
 
         mBinding.btnLoginGoogle.setOnClickListener {
             val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-                .requestIdToken(getString(R.string.default_web_client_id))
-                .requestEmail()
-                .build()
+                .requestIdToken(getString(R.string.default_web_client_id)).requestEmail().build()
             googleSignInClient = GoogleSignIn.getClient(requireActivity(), gso)
             googleSignInClient.signInIntent
 
@@ -91,45 +86,21 @@ class AccountFragment : Fragment() {
     private fun firebaseAuthWithGoogle(idToken: String) {
         auth = FirebaseAuth.getInstance()
         val credential = GoogleAuthProvider.getCredential(idToken, null)
-        auth.signInWithCredential(credential)
-            .addOnCompleteListener(requireActivity()) {
-                if (it.isSuccessful) {
-                    // Sign in success, update UI with the signed-in user's information
-
-                    val currentUser = auth.currentUser
-                    if (currentUser != null) {
-                        val userId = currentUser.uid
-                        val email = currentUser.email
-                        val username = currentUser.displayName
-                        val profileImageUrl = currentUser.photoUrl.toString()
-                        val nickname = currentUser.displayName?.split("_")?.get(0)
-                        val joinedDate = System.currentTimeMillis().toString().split(".")[0]
-                        var user = User(
-                            id = userId,
-                            email = email!!,
-                            username = username!!,
-                            profileImageUrl = profileImageUrl,
-                            nickname = nickname!!,
-                            joinedDate = joinedDate
-                        )
-                        var args = Bundle().apply {
-                            putParcelable("user", user)
-                        }
-                        arguments = args
-                    }
-                    val action = AccountFragmentDirections.actionAccountFragmentToHomeFragment()
-                    findNavController().navigate(action)
-                    Toast.makeText(requireContext(), "Succesfully", Toast.LENGTH_SHORT).show()
-                } else {
-                    // If sign in fails, display a message to the user
-                    Toast.makeText(requireContext(), "Failed*2", Toast.LENGTH_SHORT).show()
-                }
+        auth.signInWithCredential(credential).addOnCompleteListener(requireActivity()) {
+            if (it.isSuccessful) {
+                // Sign in success, update UI with the signed-in user's information
+                val action = AccountFragmentDirections.actionAccountFragmentToHomeFragment()
+                findNavController().navigate(action)
+                Toast.makeText(requireContext(), "Succesfully", Toast.LENGTH_SHORT).show()
+            } else {
+                // If sign in fails, display a message to the user
+                Toast.makeText(requireContext(), "Failed*2", Toast.LENGTH_SHORT).show()
             }
+        }
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
         _mBinding = null
     }
-
 }

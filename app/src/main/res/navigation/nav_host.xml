@@ -77,5 +77,12 @@
         <action
             android:id="@+id/action_profileFragment_to_postDetailsFragment"
             app:destination="@id/postDetailsFragment" />
+        <action
+            android:id="@+id/action_profileFragment_to_addPostFragment"
+            app:destination="@id/addPostFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/messageFragment"
+        android:name="com.volie.twittercloneapp.view.fragment.MessageFragment"
+        android:label="MessageFragment" />
 </navigation>

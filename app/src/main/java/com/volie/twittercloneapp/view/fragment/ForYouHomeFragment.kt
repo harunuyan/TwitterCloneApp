@@ -26,9 +26,7 @@ class ForYouHomeFragment : Fragment() {
     }
 
     override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
         _mBinding = FragmentForYouBinding.inflate(inflater, container, false)
         return mBinding.root
@@ -39,7 +37,6 @@ class ForYouHomeFragment : Fragment() {
 
         mBinding.rvForYou.adapter = mAdapter
     }
-
 
     override fun onDestroyView() {
         super.onDestroyView()
