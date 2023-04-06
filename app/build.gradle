@@ -99,7 +99,7 @@ dependencies {
     implementation 'com.makeramen:roundedimageview:2.3.0'
 
     // Google Sign In
-    implementation 'com.google.android.gms:play-services-auth:20.4.1'
+    implementation 'com.google.android.gms:play-services-auth:20.5.0'
 }
 // Allow references to generated code
 kapt {
