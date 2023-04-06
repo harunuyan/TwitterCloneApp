@@ -5,10 +5,10 @@ import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class Tweet(
-    val id: String? = "",
+    var id: String? = "",
     val text: String? = null,
     val createdAt: String? = null,
-    val user: User? = null,
+    val trend: Trend? = null,
     val viewCount: Int? = 0,
     val retweetCount: Int? = 0,
     val favoriteCount: Int? = 0,
