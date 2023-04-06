@@ -14,7 +14,7 @@ class TweetsProfileFragment : Fragment() {
     private val mBinding get() = _mBinding!!
     private val mAdapter by lazy {
         HomeAdapter {
-            val action = ProfileFragmentDirections.actionProfileFragmentToPostDetailsFragment(it)
+            val action = ProfileFragmentDirections.actionProfileFragmentToPostDetailsFragment()
             findNavController().navigate(action)
         }
     }
