@@ -8,7 +8,7 @@ import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
-import com.volie.twittercloneapp.model.Tweet
+import com.volie.twittercloneapp.model.User
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
@@ -16,17 +16,20 @@ import javax.inject.Inject
 class ForYouViewModel
 @Inject constructor() : ViewModel() {
 
-    private val _tweets = MutableLiveData<List<Tweet>>()
-    val tweets: LiveData<List<Tweet>> = _tweets
+    private val _tweets = MutableLiveData<List<User>>()
+    val tweets: LiveData<List<User>> = _tweets
 
     private val database = FirebaseDatabase.getInstance()
 
     fun getTweets() {
-        val tweetRef = database.getReference("Tweet")
+        val tweetRef = database.getReference("User")
         val tweetListener = object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 val tweetList = snapshot.children.mapNotNull {
-                    it.getValue(Tweet::class.java)
+                    val uid = it.key
+                    val data = it.getValue(User::class.java)
+                    data?.id = uid
+                    data
                 }
                 _tweets.postValue(tweetList)
             }

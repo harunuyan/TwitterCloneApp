@@ -15,7 +15,6 @@ import dagger.hilt.android.AndroidEntryPoint
 class PostDetailsFragment : Fragment() {
     private var _mBinding: FragmentPostDetailsBinding? = null
     private val mBinding get() = _mBinding!!
-    private lateinit var mArgs: PostDetailsFragmentArgs
     private val mViewModel: PostDetailsViewModel by viewModels()
     private val mAdapter by lazy {
         PostDetailsAdapter()
@@ -32,9 +31,7 @@ class PostDetailsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        arguments?.let {
-            mArgs = PostDetailsFragmentArgs.fromBundle(it)
-        }
+
         mBinding.rvPostDetailComments.adapter = mAdapter
     }
 

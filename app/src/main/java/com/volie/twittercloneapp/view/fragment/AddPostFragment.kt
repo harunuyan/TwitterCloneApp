@@ -61,18 +61,18 @@ class AddPostFragment : Fragment() {
     }
 
     private fun uploadTweet() {
-        val tweet = Tweet(
+        val user = User(
             id = user!!.uid,
-            text = mBinding.etAddPost.text.toString(),
-            createdAt = System.currentTimeMillis().toString(),
-            user = User(
+            name = user.displayName!!,
+            nickname = "@${user.displayName!!}".lowercase().split(" ").joinToString(""),
+            profileImageUrl = user.photoUrl.toString(),
+            tweet = Tweet(
                 id = user.uid,
-                name = user.displayName!!,
-                nickname = "@${user.displayName!!}".lowercase().split(" ").joinToString(""),
-                profileImageUrl = user.photoUrl.toString()
+                text = mBinding.etAddPost.text.toString(),
+                createdAt = System.currentTimeMillis().toString()
             )
         )
-        mViewModel.addPostToFirebase(tweet)
+        mViewModel.addPostToFirebase(user)
     }
 
     override fun onDestroyView() {

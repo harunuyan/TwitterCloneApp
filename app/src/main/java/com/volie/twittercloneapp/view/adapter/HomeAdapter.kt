@@ -9,35 +9,35 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.volie.twittercloneapp.R
 import com.volie.twittercloneapp.databinding.HomeItemBinding
-import com.volie.twittercloneapp.model.Tweet
+import com.volie.twittercloneapp.model.User
 import java.text.SimpleDateFormat
 import java.util.*
 
 class HomeAdapter(
-    val onItemClick: (tweet: Tweet) -> Unit
-) : ListAdapter<Tweet, HomeAdapter.HomeViewHolder>(
+    val onItemClick: (user: User) -> Unit
+) : ListAdapter<User, HomeAdapter.HomeViewHolder>(
     HomeItemCallback()
 ) {
     inner class HomeViewHolder(private val binding: HomeItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(position: Int) {
-            val tweet = currentList[position]
+            val user = currentList[position]
             with(binding) {
-                tvNickname.text = tweet.user?.nickname
-                tvUsername.text = tweet.user?.name
-                tvPostText.text = tweet.text
-                tvPostTime.text = timeDifferenceInMinutes(tweet.createdAt!!.toLong())
-                tvPostRetweet.text = tweet.retweetCount.toString()
-                tvPostLike.text = tweet.favoriteCount.toString()
+                tvNickname.text = user.nickname
+                tvUsername.text = user.name
+                tvPostText.text = user.tweet?.text
+                tvPostTime.text = timeDifferenceInMinutes(user.tweet?.createdAt!!.toLong())
+                tvPostRetweet.text = user.tweet.retweetCount.toString()
+                tvPostLike.text = user.tweet.favoriteCount.toString()
                 Glide.with(root.context)
-                    .load(tweet.user?.profileImageUrl)
+                    .load(user.profileImageUrl)
                     .into(ivProfilePhoto)
-                if (tweet.favorited) {
+                if (user.tweet.favorited) {
                     ivPostLike.setImageResource(R.drawable.ic_liked)
                 } else {
                     ivPostLike.setImageResource(R.drawable.ic_like)
                 }
-                if (tweet.retweeted) {
+                if (user.tweet.retweeted) {
                     ivPostRetweet.setImageResource(R.drawable.ic_retweeted)
                 } else {
                     ivPostRetweet.setImageResource(R.drawable.ic_retweet)
@@ -72,12 +72,12 @@ class HomeAdapter(
     }
 }
 
-private class HomeItemCallback : DiffUtil.ItemCallback<Tweet>() {
-    override fun areItemsTheSame(oldItem: Tweet, newItem: Tweet): Boolean {
+private class HomeItemCallback : DiffUtil.ItemCallback<User>() {
+    override fun areItemsTheSame(oldItem: User, newItem: User): Boolean {
         return oldItem == newItem
     }
 
-    override fun areContentsTheSame(oldItem: Tweet, newItem: Tweet): Boolean {
+    override fun areContentsTheSame(oldItem: User, newItem: User): Boolean {
         return oldItem == newItem
     }
 
