@@ -44,8 +44,9 @@ class ProfileFragment : Fragment() {
                         ?.lowercase()
                         ?.replace(" ", "")
                 }"
+
                 tvJoinedProfile.text =
-                    "Joined ${DateUtils.getFormatDate(System.currentTimeMillis())}"
+                    "Joined ${DateUtils.getJoinedDate(System.currentTimeMillis())}"
             }
         }
         mBinding.fabTweetProfile.setOnClickListener {

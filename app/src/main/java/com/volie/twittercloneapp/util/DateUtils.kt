@@ -5,9 +5,9 @@ import java.util.*
 
 object DateUtils {
 
-    private val dateFormat = SimpleDateFormat("MM/yyyy", Locale.getDefault())
+    private val joinedDateFormat = SimpleDateFormat("MM/yyyy", Locale.getDefault())
 
-    fun getFormatDate(timeInMillis: Long): String {
-        return dateFormat.format(Date(timeInMillis))
+    fun getJoinedDate(timeInMillis: Long): String {
+        return joinedDateFormat.format(Date(timeInMillis))
     }
 }

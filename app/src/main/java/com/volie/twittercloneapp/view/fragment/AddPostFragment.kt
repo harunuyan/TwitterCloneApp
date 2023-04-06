@@ -14,7 +14,6 @@ import com.volie.twittercloneapp.R
 import com.volie.twittercloneapp.databinding.FragmentAddPostBinding
 import com.volie.twittercloneapp.model.Tweet
 import com.volie.twittercloneapp.model.User
-import com.volie.twittercloneapp.util.DateUtils
 import com.volie.twittercloneapp.view.fragment.viewmodel.AddPostViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -62,11 +61,10 @@ class AddPostFragment : Fragment() {
     }
 
     private fun uploadTweet() {
-
         val tweet = Tweet(
             id = user!!.uid,
             text = mBinding.etAddPost.text.toString(),
-            createdAt = DateUtils.getFormatDate(System.currentTimeMillis()),
+            createdAt = System.currentTimeMillis().toString(),
             user = User(
                 id = user.uid,
                 name = user.displayName!!,
