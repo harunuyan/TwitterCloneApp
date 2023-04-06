@@ -5,17 +5,25 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.firebase.auth.FirebaseAuth
 import com.volie.twittercloneapp.R
 import com.volie.twittercloneapp.databinding.FragmentAddPostBinding
+import com.volie.twittercloneapp.model.Tweet
+import com.volie.twittercloneapp.model.User
+import com.volie.twittercloneapp.util.DateUtils
+import com.volie.twittercloneapp.view.fragment.viewmodel.AddPostViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class AddPostFragment : Fragment() {
     private var _mBinding: FragmentAddPostBinding? = null
     private val mBinding get() = _mBinding!!
+    private val mViewModel: AddPostViewModel by viewModels()
+    private val user = FirebaseAuth.getInstance().currentUser
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -29,7 +37,11 @@ class AddPostFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val user = FirebaseAuth.getInstance().currentUser
+        mBinding.btnPost.setOnClickListener {
+            uploadTweet()
+            val action = AddPostFragmentDirections.actionAddPostFragmentToHomeFragment()
+            findNavController().navigate(action)
+        }
 
         mBinding.ivBack.setOnClickListener {
             requireActivity().onBackPressedDispatcher.onBackPressed()
@@ -47,6 +59,22 @@ class AddPostFragment : Fragment() {
         Glide.with(requireContext())
             .load(user?.photoUrl)
             .into(mBinding.imgProfile)
+    }
+
+    private fun uploadTweet() {
+
+        val tweet = Tweet(
+            id = user!!.uid,
+            text = mBinding.etAddPost.text.toString(),
+            createdAt = DateUtils.getFormatDate(System.currentTimeMillis()),
+            user = User(
+                id = user.uid,
+                name = user.displayName!!,
+                nickname = "@${user.displayName!!}".lowercase().split(" ").joinToString(""),
+                profileImageUrl = user.photoUrl.toString()
+            )
+        )
+        mViewModel.addPostToFirebase(tweet)
     }
 
     override fun onDestroyView() {

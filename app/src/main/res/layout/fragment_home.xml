@@ -4,62 +4,55 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <androidx.core.widget.NestedScrollView
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:fillViewport="true">
+        android:layout_height="match_parent">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tabLayout_home"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/fl_home" />
 
-            <com.google.android.material.tabs.TabLayout
-                android:id="@+id/tabLayout_home"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/fl_home" />
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/viewPager_home"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tabLayout_home"
+            app:layout_constraintVertical_bias="0.0" />
 
-            <androidx.viewpager2.widget.ViewPager2
-                android:id="@+id/viewPager_home"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tabLayout_home"
-                app:layout_constraintVertical_bias="0.0" />
+        <FrameLayout
+            android:id="@+id/fl_home"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-            <FrameLayout
-                android:id="@+id/fl_home"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+            <com.makeramen.roundedimageview.RoundedImageView
+                android:id="@+id/iv_profile_photo"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:layout_margin="12dp"
+                android:src="@color/black"
+                app:riv_corner_radius="25dp" />
 
-                <com.makeramen.roundedimageview.RoundedImageView
-                    android:id="@+id/iv_profile_photo"
-                    android:layout_width="28dp"
-                    android:layout_height="28dp"
-                    android:layout_margin="12dp"
-                    android:src="@color/black"
-                    app:riv_corner_radius="25dp" />
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_gravity="center"
+                android:layout_margin="12dp"
+                android:src="@drawable/ic_twitter" />
 
-                <ImageView
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:layout_gravity="center"
-                    android:layout_margin="12dp"
-                    android:src="@drawable/ic_twitter" />
+        </FrameLayout>
 
-            </FrameLayout>
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-    </androidx.core.widget.NestedScrollView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab_home"

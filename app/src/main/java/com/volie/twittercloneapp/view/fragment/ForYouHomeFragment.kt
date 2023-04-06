@@ -20,7 +20,7 @@ class ForYouHomeFragment : Fragment() {
     private val mViewModel: ForYouViewModel by viewModels()
     private val mAdapter by lazy {
         HomeAdapter {
-            val action = HomeFragmentDirections.actionHomeFragmentToPostDetailsFragment(it)
+            val action = HomeFragmentDirections.actionHomeFragmentToPostDetailsFragment()
             findNavController().navigate(action)
         }
     }
@@ -36,6 +36,15 @@ class ForYouHomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         mBinding.rvForYou.adapter = mAdapter
+
+        observeTweets()
+        mViewModel.getTweets()
+    }
+
+    private fun observeTweets() {
+        mViewModel.tweets.observe(viewLifecycleOwner) {
+            mAdapter.submitList(it)
+        }
     }
 
     override fun onDestroyView() {
