@@ -4,11 +4,13 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
 import com.google.android.material.tabs.TabLayoutMediator
 import com.google.firebase.auth.FirebaseAuth
+import com.volie.twittercloneapp.R
 import com.volie.twittercloneapp.databinding.FragmentHomeBinding
 import com.volie.twittercloneapp.view.MainActivity
 import com.volie.twittercloneapp.view.adapter.HomeViewPagerAdapter
@@ -20,6 +22,12 @@ class HomeFragment : Fragment() {
     private val mBinding get() = _mBinding!!
     private val firebaseAuth by lazy {
         FirebaseAuth.getInstance()
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        requireActivity().window.statusBarColor =
+            ContextCompat.getColor(requireContext(), R.color.grayS)
     }
 
     override fun onCreateView(

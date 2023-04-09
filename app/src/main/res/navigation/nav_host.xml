@@ -2,7 +2,7 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/nav_host"
-    app:startDestination="@id/accountFragment">
+    app:startDestination="@id/splashScreenFragment">
 
     <fragment
         android:id="@+id/homeFragment"
@@ -33,7 +33,11 @@
     <fragment
         android:id="@+id/postDetailsFragment"
         android:name="com.volie.twittercloneapp.view.fragment.PostDetailsFragment"
-        android:label="Tweet" />
+        android:label="Tweet">
+        <argument
+            android:name="user"
+            app:argType="com.volie.twittercloneapp.model.User" />
+    </fragment>
     <fragment
         android:id="@+id/addPostFragment"
         android:name="com.volie.twittercloneapp.view.fragment.AddPostFragment">
@@ -87,4 +91,15 @@
         android:id="@+id/messageFragment"
         android:name="com.volie.twittercloneapp.view.fragment.MessageFragment"
         android:label="MessageFragment" />
+    <fragment
+        android:id="@+id/splashScreenFragment"
+        android:name="com.volie.twittercloneapp.view.fragment.SplashScreenFragment"
+        android:label="SplashScreenFragment">
+        <action
+            android:id="@+id/action_splashScreenFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+        <action
+            android:id="@+id/action_splashScreenFragment_to_accountFragment"
+            app:destination="@id/accountFragment" />
+    </fragment>
 </navigation>

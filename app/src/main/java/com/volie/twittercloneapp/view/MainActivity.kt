@@ -31,7 +31,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         _mBinding = ActivityMainBinding.inflate(layoutInflater)
-        setStatusAndNavBarColor()
+//        setStatusAndNavBarColor()
         setContentView(mBinding.root)
 
         setUserHeaderData()
@@ -140,6 +140,11 @@ class MainActivity : AppCompatActivity() {
                 R.id.homeFragment -> {
                     mBinding.toolbar.visibility = View.GONE
                     mBinding.bottomNavigationView.visibility = View.VISIBLE
+                }
+                R.id.splashScreenFragment -> {
+                    mBinding.toolbar.visibility = View.GONE
+                    mBinding.bottomNavigationView.visibility = View.GONE
+                    mBinding.drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED)
                 }
 
                 else -> {
