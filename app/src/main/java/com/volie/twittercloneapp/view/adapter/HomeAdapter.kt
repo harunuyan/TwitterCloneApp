@@ -2,6 +2,7 @@ package com.volie.twittercloneapp.view.adapter
 
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
@@ -29,18 +30,36 @@ class HomeAdapter(
                 tvPostTime.text = timeDifferenceInMinutes(user.tweet?.createdAt!!.toLong())
                 tvPostRetweet.text = user.tweet.retweetCount.toString()
                 tvPostLike.text = user.tweet.favoriteCount.toString()
+                if (ivPostPhoto != null) {
+                    Glide.with(root.context)
+                        .load(user.tweet.postImage)
+                        .into(ivPostPhoto)
+                    cvPostPhoto.visibility = View.VISIBLE
+                }
                 Glide.with(root.context)
                     .load(user.profileImageUrl)
                     .into(ivProfilePhoto)
-                if (user.tweet.favorited) {
-                    ivPostLike.setImageResource(R.drawable.ic_liked)
-                } else {
-                    ivPostLike.setImageResource(R.drawable.ic_like)
+                ivPostLike.setOnClickListener {
+                    user.tweet.favorited = !user.tweet.favorited
+                    if (user.tweet.favorited) {
+                        ivPostLike.setImageResource(R.drawable.ic_liked)
+                        user.tweet.favorited = true
+                        tvPostLike.text = (tvPostLike.text.toString().toInt() + 1).toString()
+                    } else {
+                        ivPostLike.setImageResource(R.drawable.ic_like)
+                        user.tweet.favorited = false
+                        tvPostLike.text = (tvPostLike.text.toString().toInt() - 1).toString()
+                    }
                 }
-                if (user.tweet.retweeted) {
-                    ivPostRetweet.setImageResource(R.drawable.ic_retweeted)
-                } else {
-                    ivPostRetweet.setImageResource(R.drawable.ic_retweet)
+                ivPostRetweet.setOnClickListener {
+                    if (user.tweet.retweeted) {
+                        ivPostRetweet.setImageResource(R.drawable.ic_retweeted)
+                    } else {
+                        ivPostRetweet.setImageResource(R.drawable.ic_retweet)
+                    }
+                }
+                root.setOnClickListener {
+                    onItemClick(user)
                 }
             }
         }

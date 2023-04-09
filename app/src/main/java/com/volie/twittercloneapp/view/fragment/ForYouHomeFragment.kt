@@ -20,7 +20,7 @@ class ForYouHomeFragment : Fragment() {
     private val mViewModel: ForYouViewModel by viewModels()
     private val mAdapter by lazy {
         HomeAdapter {
-            val action = HomeFragmentDirections.actionHomeFragmentToPostDetailsFragment()
+            val action = HomeFragmentDirections.actionHomeFragmentToPostDetailsFragment(it)
             findNavController().navigate(action)
         }
     }
