@@ -25,7 +25,7 @@ class ForYouViewModel
         val tweetRef = database.getReference("User")
         val tweetListener = object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
-                val tweetList = snapshot.children.mapNotNull {
+                val tweetList = snapshot.children.reversed().mapNotNull {
                     val uid = it.key
                     val data = it.getValue(User::class.java)
                     data?.id = uid
@@ -38,6 +38,6 @@ class ForYouViewModel
                 Log.e("ForYouViewModel", "onCancelled: ${e.message}")
             }
         }
-        tweetRef.addValueEventListener(tweetListener)
+        tweetRef.orderByChild("createdDate").addValueEventListener(tweetListener)
     }
 }
