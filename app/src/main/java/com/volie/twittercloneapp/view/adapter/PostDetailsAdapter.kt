@@ -5,16 +5,50 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import com.volie.twittercloneapp.R
 import com.volie.twittercloneapp.databinding.HomeItemBinding
-import com.volie.twittercloneapp.model.Tweet
+import com.volie.twittercloneapp.model.User
 
 class PostDetailsAdapter :
-    ListAdapter<Tweet, PostDetailsAdapter.PostDetailsViewHolder>(DetailsItemCallback()) {
+    ListAdapter<User, PostDetailsAdapter.PostDetailsViewHolder>(DetailsItemCallback()) {
 
     inner class PostDetailsViewHolder(private val binding: HomeItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(position: Int) {
-
+            val item = currentList[position]
+            with(binding) {
+                tvPostText.text = item.tweet?.text
+                tvPostLike.text = item.tweet?.favoriteCount.toString()
+                tvPostRetweet.text = item.tweet?.retweetCount.toString()
+                tvUsername.text = item.name
+                tvNickname.text = item.nickname
+                tvPostComment.text = item.tweet?.replyTo?.text
+                tvPostViews.text = item.tweet?.viewCount.toString()
+                tvPostTime.text = item.tweet?.createdAt
+                Glide.with(root.context)
+                    .load(item.profileImageUrl)
+                    .into(ivProfilePhoto)
+                Glide.with(root.context)
+                    .load(item.tweet?.postImage)
+                    .into(ivPostPhoto)
+                ivPostLike.setOnClickListener {
+                    if (item.tweet!!.favorited) {
+                        ivPostLike.setImageResource(R.drawable.ic_liked)
+                        tvPostLike.text = (tvPostLike.text.toString().toInt() + 1).toString()
+                    } else {
+                        ivPostLike.setImageResource(R.drawable.ic_like)
+                        tvPostLike.text = (tvPostLike.text.toString().toInt() - 1).toString()
+                    }
+                }
+                ivPostRetweet.setOnClickListener {
+                    if (item.tweet!!.retweeted) {
+                        ivPostRetweet.setImageResource(R.drawable.ic_retweeted)
+                    } else {
+                        ivPostRetweet.setImageResource(R.drawable.ic_retweet)
+                    }
+                }
+            }
         }
     }
 
@@ -33,12 +67,12 @@ class PostDetailsAdapter :
     }
 }
 
-private class DetailsItemCallback : DiffUtil.ItemCallback<Tweet>() {
-    override fun areItemsTheSame(oldItem: Tweet, newItem: Tweet): Boolean {
+private class DetailsItemCallback : DiffUtil.ItemCallback<User>() {
+    override fun areItemsTheSame(oldItem: User, newItem: User): Boolean {
         return oldItem == newItem
     }
 
-    override fun areContentsTheSame(oldItem: Tweet, newItem: Tweet): Boolean {
+    override fun areContentsTheSame(oldItem: User, newItem: User): Boolean {
         return oldItem == newItem
     }
 }

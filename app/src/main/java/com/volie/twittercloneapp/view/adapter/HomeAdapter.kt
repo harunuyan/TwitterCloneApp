@@ -43,11 +43,9 @@ class HomeAdapter(
                     user.tweet.favorited = !user.tweet.favorited
                     if (user.tweet.favorited) {
                         ivPostLike.setImageResource(R.drawable.ic_liked)
-                        user.tweet.favorited = true
                         tvPostLike.text = (tvPostLike.text.toString().toInt() + 1).toString()
                     } else {
                         ivPostLike.setImageResource(R.drawable.ic_like)
-                        user.tweet.favorited = false
                         tvPostLike.text = (tvPostLike.text.toString().toInt() - 1).toString()
                     }
                 }
