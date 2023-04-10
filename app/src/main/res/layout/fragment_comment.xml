@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/iv_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="12dp"
+        android:src="@drawable/ic_cancel"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_post"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="12dp"
+        android:backgroundTint="#2aa9e0"
+        android:hint="@string/tweet"
+        android:textColorHint="@color/white"
+        android:textSize="16sp"
+        app:cornerRadius="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cv_profile_tweet"
+        android:layout_width="54dp"
+        android:layout_height="54dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="85dp"
+        app:cardCornerRadius="400dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/img_profile_tweet"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@color/black" />
+
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/tv_username_comment"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:text="Harun Uyan"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@id/cv_profile_tweet"
+        app:layout_constraintTop_toTopOf="@id/cv_profile_tweet" />
+
+    <TextView
+        android:id="@+id/tv_nickname_comment"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="6dp"
+        android:text="qharunuyan_"
+        app:layout_constraintStart_toEndOf="@id/tv_username_comment"
+        app:layout_constraintTop_toTopOf="@id/cv_profile_tweet" />
+
+    <TextView
+        android:id="@+id/tv_post_text"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="12dp"
+        android:maxLength="140"
+        android:text="140karakter140karakter140karakter140karakter140karakter140karakter140karakter140karakter140karakter140karakter140karakter140karakter140karakter140karakter140karakter140karakter140karakter140karakter140karakter140karakter140karakter140karakter140karakter140karakter140karakter140ka"
+        android:textStyle="bold"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/tv_username_comment"
+        app:layout_constraintTop_toBottomOf="@id/tv_username_comment" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_add_media"
+        android:layout_width="0dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="12dp"
+        android:visibility="visible"
+        app:cardCornerRadius="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/tv_username_comment"
+        app:layout_constraintTop_toBottomOf="@id/tv_post_text">
+
+        <ImageView
+            android:id="@+id/img_add_media_cmd"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/black"
+            android:scaleType="centerCrop"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/tv_username_comment"
+            app:layout_constraintTop_toBottomOf="@id/tv_post_text"
+            tools:src="@drawable/ic_twitter" />
+
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/tv_replying_to_comment"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:text="@string/replying_to"
+        app:layout_constraintStart_toStartOf="@id/tv_username_comment"
+        app:layout_constraintTop_toBottomOf="@id/card_add_media" />
+
+    <com.google.android.material.divider.MaterialDivider
+        android:layout_width="2dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="2dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@id/cv_profile_comment"
+        app:layout_constraintEnd_toEndOf="@+id/cv_profile_tweet"
+        app:layout_constraintStart_toStartOf="@id/cv_profile_tweet"
+        app:layout_constraintTop_toBottomOf="@id/cv_profile_tweet" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cv_profile_comment"
+        android:layout_width="54dp"
+        android:layout_height="54dp"
+        android:layout_marginTop="12dp"
+        app:cardCornerRadius="400dp"
+        app:layout_constraintStart_toStartOf="@id/cv_profile_tweet"
+        app:layout_constraintTop_toBottomOf="@id/tv_replying_to_comment">
+
+        <ImageView
+            android:id="@+id/img_profile_comment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@color/black" />
+
+    </androidx.cardview.widget.CardView>
+
+    <EditText
+        android:id="@+id/tv_post_text_comment"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="12dp"
+        android:background="@null"
+        android:hint="Tweet your reply"
+        android:maxLength="140"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="@id/cv_profile_comment"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/tv_username_comment"
+        app:layout_constraintTop_toTopOf="@id/cv_profile_comment" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_add_media_comment"
+        android:layout_width="0dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="12dp"
+        android:visibility="gone"
+        app:cardCornerRadius="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/tv_username_comment"
+        app:layout_constraintTop_toBottomOf="@id/tv_post_text_comment">
+
+
+        <ImageView
+            android:id="@+id/img_add_media_comment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:src="@color/gray" />
+
+    </androidx.cardview.widget.CardView>
+
+    <FrameLayout
+        android:id="@+id/fl_add_media_gallery"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:padding="4dp"
+        app:layout_constraintBottom_toTopOf="@id/divider_add_who_reply"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <ImageView
+            android:id="@+id/img_add_media_gallery"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_add_media_gallery" />
+
+    </FrameLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_add_media"
+        android:layout_width="0dp"
+        android:layout_height="80dp"
+        android:orientation="horizontal"
+        android:padding="4dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintBottom_toTopOf="@id/divider_add_who_reply"
+        app:layout_constraintStart_toEndOf="@+id/fl_add_media_gallery" />
+
+    <com.google.android.material.divider.MaterialDivider
+        android:id="@+id/divider_add_who_reply"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        app:layout_constraintBottom_toTopOf="@+id/add_who_reply" />
+
+    <LinearLayout
+        android:id="@+id/add_who_reply"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/divider_add_media">
+
+        <ImageView
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:layout_margin="15dp"
+            android:src="@drawable/ic_world" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/everyone_can_reply"
+            android:textAlignment="center"
+            android:textColor="@color/twitter_blue"
+            android:textSize="16sp" />
+
+    </LinearLayout>
+
+    <com.google.android.material.divider.MaterialDivider
+        android:id="@+id/divider_add_media"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginBottom="12dp"
+        app:layout_constraintBottom_toTopOf="@id/img_add_image" />
+
+    <ImageView
+        android:id="@+id/img_add_image"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:layout_margin="12dp"
+        android:src="@drawable/ic_add_image"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/img_add_gif"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:layout_marginStart="24dp"
+        android:src="@drawable/ic_add_gif"
+        app:layout_constraintBottom_toBottomOf="@id/img_add_image"
+        app:layout_constraintStart_toEndOf="@id/img_add_image" />
+
+    <ImageView
+        android:id="@+id/img_add_poll"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:layout_marginStart="24dp"
+        android:src="@drawable/ic_add_poll"
+        app:layout_constraintBottom_toBottomOf="@id/img_add_gif"
+        app:layout_constraintStart_toEndOf="@id/img_add_gif" />
+
+    <ImageView
+        android:id="@+id/img_add_location"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:layout_marginStart="24dp"
+        android:src="@drawable/ic_add_location"
+        app:layout_constraintBottom_toBottomOf="@id/img_add_poll"
+        app:layout_constraintStart_toEndOf="@id/img_add_poll" />
+
+    <ProgressBar
+        android:id="@+id/progress_bar_tweet_character_count"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:layout_marginEnd="12dp"
+        app:layout_constraintBottom_toBottomOf="@+id/img_add_location"
+        app:layout_constraintEnd_toStartOf="@id/img_add_tweet_floud" />
+
+    <com.google.android.material.divider.MaterialDivider
+        android:layout_width="1dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="6dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="@id/progress_bar_tweet_character_count"
+        app:layout_constraintStart_toEndOf="@id/progress_bar_tweet_character_count"
+        app:layout_constraintTop_toTopOf="@id/progress_bar_tweet_character_count" />
+
+    <ImageView
+        android:id="@+id/img_add_tweet_floud"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:layout_marginEnd="12dp"
+        android:src="@drawable/ic_add_tweet_floud"
+        app:layout_constraintBottom_toBottomOf="@id/progress_bar_tweet_character_count"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -38,4 +38,5 @@
     <string name="following">Following</string>
     <string name="followers">Followers</string>
     <string name="edit_profile">Edit profile</string>
+    <string name="replying_to">Replying to</string>
 </resources>

@@ -41,7 +41,8 @@ class PostDetailsFragment : Fragment() {
         showDetails()
 
         mBinding.ivPostComment.setOnClickListener {
-            val action = PostDetailsFragmentDirections.actionPostDetailsFragmentToAddPostFragment()
+            val action =
+                PostDetailsFragmentDirections.actionPostDetailsFragmentToCommentFragment(args.user)
             findNavController().navigate(action)
         }
     }
