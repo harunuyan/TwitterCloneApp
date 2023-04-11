@@ -2,6 +2,7 @@ package com.volie.twittercloneapp.view
 
 import android.os.Bundle
 import android.view.View
+import androidx.activity.OnBackPressedCallback
 import androidx.activity.addCallback
 import androidx.appcompat.app.AppCompatActivity
 import androidx.drawerlayout.widget.DrawerLayout
@@ -12,7 +13,6 @@ import androidx.navigation.ui.NavigationUI
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.bumptech.glide.Glide
-import com.google.android.material.elevation.SurfaceColors
 import com.google.firebase.auth.FirebaseAuth
 import com.volie.twittercloneapp.R
 import com.volie.twittercloneapp.databinding.ActivityMainBinding
@@ -31,8 +31,15 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         _mBinding = ActivityMainBinding.inflate(layoutInflater)
-//        setStatusAndNavBarColor()
         setContentView(mBinding.root)
+
+        val callback = object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                onBackPressedDispatcher.onBackPressed()
+            }
+        }
+
+        this.onBackPressedDispatcher.addCallback(this, callback)
 
         setUserHeaderData()
 
@@ -123,6 +130,12 @@ class MainActivity : AppCompatActivity() {
                     mBinding.drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED)
                 }
 
+                R.id.commentFragment -> {
+                    mBinding.bottomNavigationView.visibility = View.GONE
+                    mBinding.toolbar.visibility = View.GONE
+                    mBinding.drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED)
+                }
+
                 R.id.trendsFragment -> {
                     mBinding.toolbar.visibility = View.GONE
                     mBinding.bottomNavigationView.visibility = View.VISIBLE
@@ -137,7 +150,7 @@ class MainActivity : AppCompatActivity() {
                     mBinding.bottomNavigationView.visibility = View.GONE
                 }
 
-                R.id.homeFragment -> {
+                R.id.feedFragment -> {
                     mBinding.toolbar.visibility = View.GONE
                     mBinding.bottomNavigationView.visibility = View.VISIBLE
                 }
@@ -156,17 +169,6 @@ class MainActivity : AppCompatActivity() {
         }
         mBinding.bottomNavigationView.setupWithNavController(navController)
         setupActionBarWithNavController(navController)
-    }
-
-    private fun setStatusAndNavBarColor() {
-        val window = window
-        val color = SurfaceColors.SURFACE_2.getColor(this)
-        window!!.statusBarColor = color
-        window.navigationBarColor = color
-    }
-
-    override fun onBackPressed() {
-        super.getOnBackPressedDispatcher().onBackPressed()
     }
 
     override fun onSupportNavigateUp(): Boolean {

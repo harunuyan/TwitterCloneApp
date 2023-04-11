@@ -7,13 +7,13 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.volie.twittercloneapp.R
-import com.volie.twittercloneapp.databinding.HomeItemBinding
+import com.volie.twittercloneapp.databinding.FeedItemBinding
 import com.volie.twittercloneapp.model.User
 
 class PostDetailsAdapter :
     ListAdapter<User, PostDetailsAdapter.PostDetailsViewHolder>(DetailsItemCallback()) {
 
-    inner class PostDetailsViewHolder(private val binding: HomeItemBinding) :
+    inner class PostDetailsViewHolder(private val binding: FeedItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(position: Int) {
             val item = currentList[position]
@@ -54,7 +54,7 @@ class PostDetailsAdapter :
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PostDetailsViewHolder {
         val binding =
-            HomeItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+            FeedItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return PostDetailsViewHolder(binding)
     }
 

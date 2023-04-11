@@ -5,17 +5,17 @@
     app:startDestination="@id/splashScreenFragment">
 
     <fragment
-        android:id="@+id/homeFragment"
-        android:name="com.volie.twittercloneapp.view.fragment.HomeFragment"
-        android:label="HomeFragment">
+        android:id="@+id/feedFragment"
+        android:name="com.volie.twittercloneapp.view.fragment.FeedFragment"
+        android:label="FeedFragment">
         <action
-            android:id="@+id/action_homeFragment_to_addPostFragment"
+            android:id="@+id/action_feedFragment_to_addPostFragment"
             app:destination="@id/addPostFragment" />
         <action
-            android:id="@+id/action_homeFragment_to_postDetailsFragment"
+            android:id="@+id/action_feedFragment_to_postDetailsFragment"
             app:destination="@id/postDetailsFragment" />
         <action
-            android:id="@+id/action_homeFragment_to_commentFragment"
+            android:id="@+id/action_feedFragment_to_commentFragment"
             app:destination="@id/commentFragment" />
     </fragment>
     <fragment
@@ -51,8 +51,8 @@
         android:id="@+id/addPostFragment"
         android:name="com.volie.twittercloneapp.view.fragment.AddPostFragment">
         <action
-            android:id="@+id/action_addPostFragment_to_homeFragment"
-            app:destination="@id/homeFragment" />
+            android:id="@+id/action_addPostFragment_to_feedFragment"
+            app:destination="@id/feedFragment" />
     </fragment>
     <fragment
         android:id="@+id/signInFragment"
@@ -69,8 +69,8 @@
             android:id="@+id/action_accountFragment_to_logInFragment"
             app:destination="@id/logInFragment" />
         <action
-            android:id="@+id/action_accountFragment_to_HomeFragment"
-            app:destination="@id/homeFragment"
+            android:id="@+id/action_accountFragment_to_FeedFragment"
+            app:destination="@id/feedFragment"
             app:popUpTo="@id/accountFragment"
             app:popUpToInclusive="true" />
     </fragment>
@@ -108,8 +108,8 @@
         android:name="com.volie.twittercloneapp.view.fragment.SplashScreenFragment"
         android:label="SplashScreenFragment">
         <action
-            android:id="@+id/action_splashScreenFragment_to_homeFragment"
-            app:destination="@id/homeFragment" />
+            android:id="@+id/action_splashScreenFragment_to_feedFragment"
+            app:destination="@id/feedFragment" />
         <action
             android:id="@+id/action_splashScreenFragment_to_accountFragment"
             app:destination="@id/accountFragment" />

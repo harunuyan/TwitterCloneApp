@@ -43,8 +43,10 @@ class AddPostFragment : Fragment() {
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
             if (it.resultCode == RESULT_OK) {
                 data = it.data?.data
-                mBinding.imgAddMedia.setImageURI(data)
-                mBinding.cardAddMedia.visibility = View.VISIBLE
+                with(mBinding) {
+                    imgAddMedia.setImageURI(data)
+                    cardAddMedia.visibility = View.VISIBLE
+                }
             }
         }
 
@@ -73,7 +75,7 @@ class AddPostFragment : Fragment() {
         mBinding.btnPost.setOnClickListener {
             val postText = mBinding.etAddPost.text.toString()
             uploadTweet(postText)
-            val action = AddPostFragmentDirections.actionAddPostFragmentToHomeFragment()
+            val action = AddPostFragmentDirections.actionAddPostFragmentToFeedFragment()
             findNavController().navigate(action)
         }
 

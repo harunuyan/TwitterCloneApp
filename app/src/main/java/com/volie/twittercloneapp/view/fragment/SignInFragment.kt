@@ -31,7 +31,7 @@ class SignInFragment : Fragment() {
             requireActivity().onBackPressedDispatcher.onBackPressed()
         }
 
-        mBinding.etPhone.setOnFocusChangeListener { v, hasFocus ->
+        mBinding.etPhone.setOnFocusChangeListener { _, hasFocus ->
             if (hasFocus) {
                 mBinding.outlinedTextFieldPhone.hint = "Phone"
                 mBinding.btnUseEmailInstead.visibility = View.VISIBLE
@@ -58,7 +58,7 @@ class SignInFragment : Fragment() {
     private fun setupCalendar() {
         val calendar = Calendar.getInstance()
         val dateSetListener =
-            DatePickerDialog.OnDateSetListener { view, year, monthOfYear, dayOfMonth ->
+            DatePickerDialog.OnDateSetListener { _, year, monthOfYear, dayOfMonth ->
                 calendar.set(Calendar.YEAR, year)
                 calendar.set(Calendar.MONTH, monthOfYear)
                 calendar.set(Calendar.DAY_OF_MONTH, dayOfMonth)

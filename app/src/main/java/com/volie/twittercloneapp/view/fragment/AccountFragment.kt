@@ -92,7 +92,7 @@ class AccountFragment : Fragment() {
         auth.signInWithCredential(credential).addOnCompleteListener(requireActivity()) {
             if (it.isSuccessful) {
                 // Sign in success, update UI with the signed-in user's information
-                val action = AccountFragmentDirections.actionAccountFragmentToHomeFragment()
+                val action = AccountFragmentDirections.actionAccountFragmentToFeedFragment()
                 findNavController().navigate(action)
                 Toast.makeText(requireContext(), "Succesfully", Toast.LENGTH_SHORT).show()
             } else {

@@ -5,4 +5,4 @@ import com.volie.twittercloneapp.R
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class FollowingHomeFragment : Fragment(R.layout.fragment_following)
+class FollowingFeedFragment : Fragment(R.layout.fragment_following)

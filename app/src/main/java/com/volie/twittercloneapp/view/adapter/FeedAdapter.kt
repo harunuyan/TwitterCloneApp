@@ -9,17 +9,17 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.volie.twittercloneapp.R
-import com.volie.twittercloneapp.databinding.HomeItemBinding
+import com.volie.twittercloneapp.databinding.FeedItemBinding
 import com.volie.twittercloneapp.model.User
 import java.text.SimpleDateFormat
 import java.util.*
 
-class HomeAdapter(
+class FeedAdapter(
     val onItemClick: (user: User) -> Unit
-) : ListAdapter<User, HomeAdapter.HomeViewHolder>(
-    HomeItemCallback()
+) : ListAdapter<User, FeedAdapter.FeedViewHolder>(
+    FeedItemCallback()
 ) {
-    inner class HomeViewHolder(private val binding: HomeItemBinding) :
+    inner class FeedViewHolder(private val binding: FeedItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(position: Int) {
             val user = currentList[position]
@@ -63,12 +63,12 @@ class HomeAdapter(
         }
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HomeViewHolder {
-        val binding = HomeItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return HomeViewHolder(binding)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FeedViewHolder {
+        val binding = FeedItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return FeedViewHolder(binding)
     }
 
-    override fun onBindViewHolder(holder: HomeViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: FeedViewHolder, position: Int) {
         holder.bind(position)
     }
 
@@ -89,7 +89,7 @@ class HomeAdapter(
     }
 }
 
-private class HomeItemCallback : DiffUtil.ItemCallback<User>() {
+private class FeedItemCallback : DiffUtil.ItemCallback<User>() {
     override fun areItemsTheSame(oldItem: User, newItem: User): Boolean {
         return oldItem == newItem
     }

@@ -11,14 +11,14 @@ import com.bumptech.glide.Glide
 import com.google.android.material.tabs.TabLayoutMediator
 import com.google.firebase.auth.FirebaseAuth
 import com.volie.twittercloneapp.R
-import com.volie.twittercloneapp.databinding.FragmentHomeBinding
+import com.volie.twittercloneapp.databinding.FragmentFeedBinding
 import com.volie.twittercloneapp.view.MainActivity
-import com.volie.twittercloneapp.view.adapter.HomeViewPagerAdapter
+import com.volie.twittercloneapp.view.adapter.FeedViewPagerAdapter
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class HomeFragment : Fragment() {
-    private var _mBinding: FragmentHomeBinding? = null
+class FeedFragment : Fragment() {
+    private var _mBinding: FragmentFeedBinding? = null
     private val mBinding get() = _mBinding!!
     private val firebaseAuth by lazy {
         FirebaseAuth.getInstance()
@@ -35,7 +35,7 @@ class HomeFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _mBinding = FragmentHomeBinding.inflate(inflater, container, false)
+        _mBinding = FragmentFeedBinding.inflate(inflater, container, false)
         setupViewPager()
         return mBinding.root
     }
@@ -43,8 +43,8 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        mBinding.fabHome.setOnClickListener {
-            val action = HomeFragmentDirections.actionHomeFragmentToAddPostFragment()
+        mBinding.fabFeed.setOnClickListener {
+            val action = FeedFragmentDirections.actionFeedFragmentToAddPostFragment()
             findNavController().navigate(action)
         }
 
@@ -59,8 +59,8 @@ class HomeFragment : Fragment() {
     }
 
     private fun setupViewPager() {
-        mBinding.viewPagerHome.adapter = HomeViewPagerAdapter(requireActivity())
-        TabLayoutMediator(mBinding.tabLayoutHome, mBinding.viewPagerHome) { tab, position ->
+        mBinding.viewPagerFeed.adapter = FeedViewPagerAdapter(requireActivity())
+        TabLayoutMediator(mBinding.tabLayoutFeed, mBinding.viewPagerFeed) { tab, position ->
             when (position) {
                 0 -> tab.text = "For you"
                 1 -> tab.text = "Following"

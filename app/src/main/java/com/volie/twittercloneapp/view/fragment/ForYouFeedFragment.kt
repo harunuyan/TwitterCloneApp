@@ -8,19 +8,19 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.volie.twittercloneapp.databinding.FragmentForYouBinding
-import com.volie.twittercloneapp.view.adapter.HomeAdapter
+import com.volie.twittercloneapp.view.adapter.FeedAdapter
 import com.volie.twittercloneapp.view.fragment.viewmodel.ForYouViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class ForYouHomeFragment : Fragment() {
+class ForYouFeedFragment : Fragment() {
 
     private var _mBinding: FragmentForYouBinding? = null
     private val mBinding get() = _mBinding!!
     private val mViewModel: ForYouViewModel by viewModels()
     private val mAdapter by lazy {
-        HomeAdapter {
-            val action = HomeFragmentDirections.actionHomeFragmentToPostDetailsFragment(it)
+        FeedAdapter {
+            val action = FeedFragmentDirections.actionFeedFragmentToPostDetailsFragment(it)
             findNavController().navigate(action)
         }
     }

@@ -61,7 +61,7 @@ class SplashScreenFragment : Fragment() {
         val account = GoogleSignIn.getLastSignedInAccount(requireContext())
         if (account != null) {
             // Giriş yapılmışsa ana sayfaya yönlendirin
-            val action = SplashScreenFragmentDirections.actionSplashScreenFragmentToHomeFragment()
+            val action = SplashScreenFragmentDirections.actionSplashScreenFragmentToFeedFragment()
             findNavController().navigate(action)
         } else {
             val action =
