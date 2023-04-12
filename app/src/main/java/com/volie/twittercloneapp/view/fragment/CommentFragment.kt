@@ -67,7 +67,7 @@ class CommentFragment : Fragment() {
             requireActivity().onBackPressedDispatcher.onBackPressed()
         }
 
-        mBinding.imgAddMediaGallery.setOnClickListener {
+        mBinding.imgAddImage.setOnClickListener {
             requestReadExternalStoragePermission()
         }
     }

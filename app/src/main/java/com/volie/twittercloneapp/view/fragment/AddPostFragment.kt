@@ -92,7 +92,7 @@ class AddPostFragment : Fragment() {
             bottomSheetDialog.show()
         }
 
-        mBinding.imgAddMediaGallery.setOnClickListener {
+        mBinding.imgAddImage.setOnClickListener {
             requestReadExternalStoragePermission()
         }
 
