@@ -13,11 +13,11 @@ import android.text.style.ForegroundColorSpan
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
 import com.google.firebase.auth.FirebaseAuth
 import com.volie.twittercloneapp.R
@@ -31,7 +31,6 @@ class CommentFragment : Fragment() {
     private lateinit var args: CommentFragmentArgs
     private val firebaseAuth = FirebaseAuth.getInstance()
     var data: Uri? = null
-    private lateinit var requestPermissionLauncher: ActivityResultLauncher<String>
     private val myActivityResult =
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
             if (it.resultCode == RESULT_OK) {
@@ -49,8 +48,6 @@ class CommentFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _mBinding = FragmentCommentBinding.inflate(inflater, container, false)
-        with(mBinding) {
-        }
         return mBinding.root
     }
 
@@ -112,7 +109,9 @@ class CommentFragment : Fragment() {
                 Manifest.permission.READ_EXTERNAL_STORAGE
             ) != PackageManager.PERMISSION_GRANTED
         ) {
-            requestPermissionLauncher.launch(Manifest.permission.READ_EXTERNAL_STORAGE)
+            val action =
+                CommentFragmentDirections.actionCommentFragmentToRequestPermissionFragment()
+            findNavController().navigate(action)
         } else {
             openGallery()
         }

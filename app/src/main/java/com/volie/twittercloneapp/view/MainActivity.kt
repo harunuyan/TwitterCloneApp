@@ -107,6 +107,7 @@ class MainActivity : AppCompatActivity() {
                     mBinding.bottomNavigationView.visibility = View.GONE
                     mBinding.toolbar.visibility = View.GONE
                 }
+
                 R.id.postDetailsFragment -> {
                     mBinding.bottomNavigationView.visibility = View.VISIBLE
                     mBinding.toolbar.visibility = View.VISIBLE
@@ -154,7 +155,14 @@ class MainActivity : AppCompatActivity() {
                     mBinding.toolbar.visibility = View.GONE
                     mBinding.bottomNavigationView.visibility = View.VISIBLE
                 }
+
                 R.id.splashScreenFragment -> {
+                    mBinding.toolbar.visibility = View.GONE
+                    mBinding.bottomNavigationView.visibility = View.GONE
+                    mBinding.drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED)
+                }
+
+                R.id.requestPermissionFragment -> {
                     mBinding.toolbar.visibility = View.GONE
                     mBinding.bottomNavigationView.visibility = View.GONE
                     mBinding.drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED)

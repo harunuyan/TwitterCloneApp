@@ -53,6 +53,9 @@
         <action
             android:id="@+id/action_addPostFragment_to_feedFragment"
             app:destination="@id/feedFragment" />
+        <action
+            android:id="@+id/action_addPostFragment_to_requestPermissionFragment"
+            app:destination="@id/requestPermissionFragment" />
     </fragment>
     <fragment
         android:id="@+id/signInFragment"
@@ -121,5 +124,19 @@
         <argument
             android:name="comment"
             app:argType="com.volie.twittercloneapp.model.User" />
+        <action
+            android:id="@+id/action_commentFragment_to_requestPermissionFragment"
+            app:destination="@id/requestPermissionFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/requestPermissionFragment"
+        android:name="com.volie.twittercloneapp.view.fragment.RequestPermissionFragment"
+        android:label="RequestPermissionFragment">
+        <action
+            android:id="@+id/action_requestPermissionFragment_to_addPostFragment"
+            app:destination="@id/addPostFragment" />
+        <action
+            android:id="@+id/action_requestPermissionFragment_to_commentFragment"
+            app:destination="@id/commentFragment" />
     </fragment>
 </navigation>

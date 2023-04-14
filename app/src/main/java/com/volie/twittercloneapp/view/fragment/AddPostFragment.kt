@@ -11,7 +11,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
@@ -28,7 +27,7 @@ import com.volie.twittercloneapp.model.Tweet
 import com.volie.twittercloneapp.model.User
 import com.volie.twittercloneapp.view.fragment.viewmodel.AddPostViewModel
 import dagger.hilt.android.AndroidEntryPoint
-import java.util.*
+import java.util.UUID
 
 @AndroidEntryPoint
 class AddPostFragment : Fragment() {
@@ -38,7 +37,6 @@ class AddPostFragment : Fragment() {
     private val user = FirebaseAuth.getInstance().currentUser
     private val storageRef = Firebase.storage.reference
     var data: Uri? = null
-    private lateinit var requestPermissionLauncher: ActivityResultLauncher<String>
     private val myActivityResult =
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
             if (it.resultCode == RESULT_OK) {
@@ -61,16 +59,6 @@ class AddPostFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        requestPermissionLauncher =
-            registerForActivityResult(ActivityResultContracts.RequestPermission()) { isGranted: Boolean ->
-                if (isGranted) {
-                    openGallery()
-                } else {
-                    Toast.makeText(requireContext(), "Depolama izni reddedildi", Toast.LENGTH_SHORT)
-                        .show()
-                }
-            }
 
         mBinding.btnPost.setOnClickListener {
             val postText = mBinding.etAddPost.text.toString()
@@ -109,7 +97,9 @@ class AddPostFragment : Fragment() {
             ) != PackageManager.PERMISSION_GRANTED
         ) {
             // İzin verilmemişse izin istenir
-            requestPermissionLauncher.launch(Manifest.permission.READ_EXTERNAL_STORAGE)
+            val action =
+                AddPostFragmentDirections.actionAddPostFragmentToRequestPermissionFragment()
+            findNavController().navigate(action)
         } else {
             // İzin zaten verilmiş, galeriye erişim kodları buraya yazılabilir
             openGallery()
