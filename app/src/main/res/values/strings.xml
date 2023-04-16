@@ -39,4 +39,11 @@
     <string name="followers">Followers</string>
     <string name="edit_profile">Edit profile</string>
     <string name="replying_to">Replying to</string>
+    <string name="use_device_settings">Use device settings</string>
+    <string name="on">On</string>
+    <string name="off">Off</string>
+    <string name="dark_mode">Dark mode</string>
+    <string name="dark_theme">Dark theme</string>
+    <string name="dim">Dim</string>
+    <string name="lights_out">Lights out</string>
 </resources>

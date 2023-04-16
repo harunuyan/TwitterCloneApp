@@ -62,6 +62,16 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:menu="@menu/navigation_drawer" />
+        app:menu="@menu/navigation_drawer">
+
+        <ImageView
+            android:id="@+id/dark_light_mode"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_gravity="bottom|start"
+            android:layout_margin="22dp"
+            android:src="@drawable/ic_light_mode" />
+
+    </com.google.android.material.navigation.NavigationView>
 
 </androidx.drawerlayout.widget.DrawerLayout>
