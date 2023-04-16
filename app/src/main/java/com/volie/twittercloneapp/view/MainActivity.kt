@@ -161,6 +161,12 @@ class MainActivity : AppCompatActivity() {
                     mBinding.bottomNavigationView.visibility = View.GONE
                 }
 
+                R.id.profileImageFragment -> {
+                    mBinding.toolbar.visibility = View.GONE
+                    mBinding.bottomNavigationView.visibility = View.GONE
+                    mBinding.drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED)
+                }
+
                 R.id.feedFragment -> {
                     mBinding.toolbar.visibility = View.GONE
                     mBinding.bottomNavigationView.visibility = View.VISIBLE

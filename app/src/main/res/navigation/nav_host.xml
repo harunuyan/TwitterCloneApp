@@ -104,6 +104,9 @@
         <action
             android:id="@+id/action_profileFragment_to_profileHeaderImageFragment"
             app:destination="@id/profileHeaderImageFragment" />
+        <action
+            android:id="@+id/action_profileFragment_to_profileImageFragment"
+            app:destination="@id/profileImageFragment" />
     </fragment>
     <fragment
         android:id="@+id/messageFragment"
@@ -148,6 +151,14 @@
         android:label="ProfileHeaderImageFragment">
         <action
             android:id="@+id/action_profileHeaderImageFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/profileImageFragment"
+        android:name="com.volie.twittercloneapp.view.fragment.ProfileImageFragment"
+        android:label="ProfileImageFragment">
+        <action
+            android:id="@+id/action_profileImageFragment_to_profileFragment"
             app:destination="@id/profileFragment" />
     </fragment>
 </navigation>
