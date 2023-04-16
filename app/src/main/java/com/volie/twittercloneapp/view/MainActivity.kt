@@ -13,6 +13,7 @@ import androidx.navigation.ui.NavigationUI
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.bumptech.glide.Glide
+import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.firebase.auth.FirebaseAuth
 import com.volie.twittercloneapp.R
 import com.volie.twittercloneapp.databinding.ActivityMainBinding
@@ -58,6 +59,10 @@ class MainActivity : AppCompatActivity() {
         setupDrawerLayout()
 
         mBinding.navigationView.itemIconTintList = null
+
+        mBinding.darkLightMode.setOnClickListener {
+            showBottomSheetMode()
+        }
     }
 
     private fun setupDrawerLayout() {
@@ -77,7 +82,6 @@ class MainActivity : AppCompatActivity() {
             mBinding.drawerLayout.close()
             true
         }
-
     }
 
     private fun setUserHeaderData() {
@@ -87,13 +91,19 @@ class MainActivity : AppCompatActivity() {
         val user = firebaseAuth.currentUser
         hBinding.tvNameDrawer.text = user?.displayName
         hBinding.tvNicknameDrawer.text = "@${user?.displayName?.lowercase()?.replace(" ", "")}"
-        Glide.with(this)
-            .load(user?.photoUrl)
-            .into(hBinding.ivProfileDrawer)
+        Glide.with(this).load(user?.photoUrl).into(hBinding.ivProfileDrawer)
 
         hBinding.root.setOnClickListener {
             navController.navigate(R.id.profileFragment)
             mBinding.drawerLayout.close()
+        }
+
+        hBinding.ivChangeAccountDrawer.setOnClickListener {
+            val bottomSheetView =
+                layoutInflater.inflate(R.layout.bottom_sheet_layout_accounts, null)
+            val bottomSheetDialog = BottomSheetDialog(this, R.style.BottomSheetDialogTheme)
+            bottomSheetDialog.setContentView(bottomSheetView)
+            bottomSheetDialog.show()
         }
     }
 
@@ -177,6 +187,13 @@ class MainActivity : AppCompatActivity() {
         }
         mBinding.bottomNavigationView.setupWithNavController(navController)
         setupActionBarWithNavController(navController)
+    }
+
+    private fun showBottomSheetMode() {
+        val bottomSheetView = layoutInflater.inflate(R.layout.bottom_sheet_layout_dark_light, null)
+        val bottomSheetDialog = BottomSheetDialog(this, R.style.BottomSheetDialogTheme)
+        bottomSheetDialog.setContentView(bottomSheetView)
+        bottomSheetDialog.show()
     }
 
     override fun onSupportNavigateUp(): Boolean {

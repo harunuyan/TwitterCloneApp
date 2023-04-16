@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/item_background"
+    android:backgroundTint="@color/white">
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="40dp"
+        android:layout_height="6dp"
+        android:layout_marginTop="9dp"
+        android:background="@drawable/item_background"
+        android:backgroundTint="@color/gray"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_accounts_header"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="24dp"
+        android:text="Accounts"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cv_profile"
+        android:layout_width="42dp"
+        android:layout_height="42dp"
+        android:layout_marginTop="16dp"
+        app:cardCornerRadius="100dp"
+        app:layout_constraintStart_toStartOf="@id/tv_accounts_header"
+        app:layout_constraintTop_toBottomOf="@id/tv_accounts_header">
+
+        <ImageView
+            android:id="@+id/iv_profile"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@color/black" />
+
+    </androidx.cardview.widget.CardView>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="@id/cv_profile"
+        app:layout_constraintStart_toEndOf="@id/cv_profile"
+        app:layout_constraintTop_toTopOf="@id/cv_profile">
+
+        <TextView
+            android:id="@+id/tv_fullName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Harun"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@id/cv_profile"
+            app:layout_constraintTop_toTopOf="@id/cv_profile" />
+
+        <TextView
+            android:id="@+id/tv_username"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="qharunuyan_"
+            app:layout_constraintStart_toStartOf="@id/tv_fullName"
+            app:layout_constraintTop_toBottomOf="@id/tv_fullName" />
+
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginEnd="24dp"
+        android:src="@drawable/ic_check_green"
+        app:layout_constraintBottom_toBottomOf="@id/cv_profile"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/cv_profile" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_create_account"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="24dp"
+        android:backgroundTint="@color/white"
+        android:hint="Create a new account"
+        android:textColorHint="@color/black"
+        android:textSize="18sp"
+        app:cornerRadius="25dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cv_profile" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_add_account"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+
+        android:layout_marginBottom="12dp"
+        android:backgroundTint="@color/white"
+        android:hint="Add an existing account"
+        android:textColorHint="@color/black"
+        android:textSize="18sp"
+        app:cornerRadius="25dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/btn_create_account"
+        app:layout_constraintStart_toStartOf="@id/btn_create_account"
+        app:layout_constraintTop_toBottomOf="@id/btn_create_account" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
