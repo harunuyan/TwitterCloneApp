@@ -54,6 +54,12 @@ class ProfileFragment : Fragment() {
             findNavController().navigate(action)
         }
         setupViewPager()
+
+        mBinding.ivProfileHeader.setOnClickListener {
+            val action =
+                ProfileFragmentDirections.actionProfileFragmentToProfileHeaderImageFragment()
+            findNavController().navigate(action)
+        }
     }
 
     private fun setupViewPager() {
