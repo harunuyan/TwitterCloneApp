@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.volie.twittercloneapp.databinding.FragmentProfileHeaderImageBinding
 
 class ProfileHeaderImageFragment : Fragment() {
@@ -23,6 +24,12 @@ class ProfileHeaderImageFragment : Fragment() {
 
         mBinding.ivBack.setOnClickListener {
             requireActivity().onBackPressedDispatcher.onBackPressed()
+        }
+
+        mBinding.btnEdit.setOnClickListener {
+            val action =
+                ProfileHeaderImageFragmentDirections.actionProfileHeaderImageFragmentToEditProfileFragment()
+            findNavController().navigate(action)
         }
     }
 
