@@ -60,6 +60,7 @@
         android:backgroundTint="@color/white"
         android:hint="Contiune"
         android:textColorHint="@color/twitter_blue_splash_screen"
+        android:textSize="18sp"
         app:cornerRadius="25dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -72,7 +73,7 @@
         android:hint="Not now"
         android:outlineProvider="none"
         android:textColorHint="@color/white"
-        android:textSize="12sp"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/continue_button" />
