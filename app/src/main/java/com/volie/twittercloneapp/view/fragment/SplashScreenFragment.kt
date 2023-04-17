@@ -48,7 +48,7 @@ class SplashScreenFragment : Fragment() {
 
         Handler(Looper.getMainLooper()).postDelayed({
             checkLoggedIn()
-        }, 2000)
+        }, 1000)
     }
 
     override fun onPause() {
