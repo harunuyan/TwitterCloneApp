@@ -20,12 +20,12 @@
         android:layout_height="18dp"
         android:layout_marginEnd="12dp"
         android:src="@drawable/ic_more"
-        app:layout_constraintBottom_toBottomOf="@id/tv_nickname"
+        app:layout_constraintBottom_toBottomOf="@id/tv_username"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@id/tv_nickname" />
+        app:layout_constraintTop_toTopOf="@id/tv_username" />
 
     <TextView
-        android:id="@+id/tv_username"
+        android:id="@+id/tv_full_name"
         android:layout_width="0dp"
         android:layout_height="13dp"
         android:layout_marginStart="12dp"
@@ -36,13 +36,13 @@
         app:layout_constraintTop_toTopOf="@id/iv_profile_photo" />
 
     <TextView
-        android:id="@+id/tv_nickname"
+        android:id="@+id/tv_username"
         android:layout_width="wrap_content"
         android:layout_height="13dp"
         android:layout_marginStart="6dp"
         android:text="Nickname"
         android:textSize="12sp"
-        app:layout_constraintStart_toEndOf="@id/tv_username"
+        app:layout_constraintStart_toEndOf="@id/tv_full_name"
         app:layout_constraintTop_toTopOf="@id/iv_profile_photo" />
 
     <TextView
@@ -52,9 +52,9 @@
         android:layout_marginStart="6dp"
         android:text="12m"
         android:textSize="12sp"
-        app:layout_constraintBottom_toBottomOf="@id/tv_nickname"
-        app:layout_constraintStart_toEndOf="@id/tv_nickname"
-        app:layout_constraintTop_toTopOf="@id/tv_nickname" />
+        app:layout_constraintBottom_toBottomOf="@id/tv_username"
+        app:layout_constraintStart_toEndOf="@id/tv_username"
+        app:layout_constraintTop_toTopOf="@id/tv_username" />
 
 
     <androidx.cardview.widget.CardView
@@ -92,8 +92,8 @@
         android:textStyle="bold"
         android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@id/tv_username"
-        app:layout_constraintTop_toBottomOf="@id/tv_username" />
+        app:layout_constraintStart_toStartOf="@id/tv_full_name"
+        app:layout_constraintTop_toBottomOf="@id/tv_full_name" />
 
     <ImageView
         android:id="@+id/iv_post_comment"
@@ -102,7 +102,7 @@
         android:layout_marginStart="4dp"
         android:layout_marginTop="12dp"
         android:src="@drawable/ic_comment"
-        app:layout_constraintStart_toStartOf="@id/tv_username"
+        app:layout_constraintStart_toStartOf="@id/tv_full_name"
         app:layout_constraintTop_toBottomOf="@id/cv_post_photo" />
 
     <TextView

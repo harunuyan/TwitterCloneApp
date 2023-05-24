@@ -26,7 +26,7 @@
             app:riv_corner_radius="35dp" />
 
         <TextView
-            android:id="@+id/tv_username"
+            android:id="@+id/tv_full_name"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="12dp"
@@ -39,15 +39,15 @@
             app:layout_constraintTop_toTopOf="@id/iv_profile_photo" />
 
         <TextView
-            android:id="@+id/tv_nickname"
+            android:id="@+id/tv_username"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginEnd="12dp"
             android:gravity="center_vertical"
             android:text="nickname"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@id/tv_username"
-            app:layout_constraintTop_toBottomOf="@id/tv_username" />
+            app:layout_constraintStart_toStartOf="@id/tv_full_name"
+            app:layout_constraintTop_toBottomOf="@id/tv_full_name" />
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cv_post_photo"

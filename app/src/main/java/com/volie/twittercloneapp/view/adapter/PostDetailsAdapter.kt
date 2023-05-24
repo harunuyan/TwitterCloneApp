@@ -21,8 +21,8 @@ class PostDetailsAdapter :
                 tvPostText.text = item.tweet?.text
                 tvPostLike.text = item.tweet?.favoriteCount.toString()
                 tvPostRetweet.text = item.tweet?.retweetCount.toString()
-                tvUsername.text = item.name
-                tvNickname.text = item.nickname
+                tvFullName.text = item.name
+                tvUsername.text = item.nickname
                 tvPostComment.text = item.tweet?.replyTo?.text
                 tvPostViews.text = item.tweet?.viewCount.toString()
                 tvPostTime.text = item.tweet?.createdAt

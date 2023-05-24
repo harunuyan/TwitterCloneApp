@@ -50,8 +50,8 @@ class PostDetailsFragment : Fragment() {
     private fun showDetails() {
         val user = args.user
         with(mBinding) {
-            tvNickname.text = user.nickname
-            tvUsername.text = user.name
+            tvUsername.text = user.nickname
+            tvFullName.text = user.name
             tvPostText.text = user.tweet?.text
             tvPostLike.text = user.tweet?.favoriteCount.toString()
             tvPostRetweet.text = user.tweet?.retweetCount.toString()

@@ -24,8 +24,8 @@ class FeedAdapter(
         fun bind(position: Int) {
             val user = currentList[position]
             with(binding) {
-                tvNickname.text = user.nickname
-                tvUsername.text = user.name
+                tvUsername.text = user.nickname
+                tvFullName.text = user.name
                 tvPostText.text = user.tweet?.text
                 tvPostTime.text = timeDifferenceInMinutes(user.tweet?.createdAt!!.toLong())
                 tvPostRetweet.text = user.tweet.retweetCount.toString()
