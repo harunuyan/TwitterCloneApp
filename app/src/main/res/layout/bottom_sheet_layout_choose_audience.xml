@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -8,94 +8,137 @@
     android:orientation="vertical">
 
     <View
+        android:id="@+id/view_first"
         android:layout_width="40dp"
         android:layout_height="5dp"
         android:layout_gravity="center"
         android:layout_marginTop="10dp"
         android:background="@drawable/item_background"
-        android:backgroundTint="@color/gray" />
+        android:backgroundTint="@color/gray"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:layout_width="match_parent"
+        android:id="@+id/tv_choose_audience"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:padding="10dp"
+        android:layout_margin="16dp"
         android:text="@string/choose_audience"
+        android:textAlignment="center"
         android:textColor="@color/black"
         android:textSize="18sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/view_first" />
 
-    <com.google.android.material.divider.MaterialDivider
+    <View
+        android:id="@+id/view_second"
         android:layout_width="match_parent"
-        android:layout_height="1dp" />
+        android:layout_height="1dp"
+        android:layout_marginTop="16dp"
+        android:background="@color/gray"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_choose_audience" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/iv_public"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_margin="16dp"
+        android:src="@drawable/ic_public"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/view_second"
+        app:shapeAppearanceOverlay="@style/RadiusImageView" />
+
+    <TextView
+        android:id="@+id/tv_public"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="5dp">
+        android:layout_marginStart="16dp"
+        android:text="Public"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@id/iv_public"
+        app:layout_constraintStart_toEndOf="@id/iv_public"
+        app:layout_constraintTop_toTopOf="@id/iv_public" />
 
-        <com.makeramen.roundedimageview.RoundedImageView
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:layout_margin="12dp"
-            android:scaleType="centerCrop"
-            android:src="@drawable/ic_public"
-            app:riv_corner_radius="20dp" />
 
-        <TextView
-            android:id="@+id/tv_public"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="Public"
-            android:textColor="@color/black"
-            android:textSize="22sp" />
-
-    </LinearLayout>
-
-    <com.google.android.material.divider.MaterialDivider
+    <View
+        android:id="@+id/view_third"
         android:layout_width="match_parent"
-        android:layout_height="1dp" />
+        android:layout_height="1dp"
+        android:layout_marginTop="16dp"
+        android:background="@color/gray"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/iv_public" />
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/iv_twitter_circle"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_margin="16dp"
+        android:src="@drawable/ic_circle"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/view_third"
+        app:shapeAppearanceOverlay="@style/RadiusImageView" />
 
-        <com.makeramen.roundedimageview.RoundedImageView
-            android:id="@+id/iv_twitter_circle"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:layout_margin="17dp"
-            android:scaleType="centerCrop"
-            android:src="@drawable/ic_circle"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:riv_corner_radius="20dp" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:text="@string/twitter_circle"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@id/iv_twitter_circle"
+        app:layout_constraintStart_toEndOf="@id/iv_twitter_circle"
+        app:layout_constraintTop_toTopOf="@id/iv_twitter_circle"
+        app:layout_goneMarginStart="16dp" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginStart="12dp"
-            android:text="@string/twitter_circle"
-            android:textColor="@color/black"
-            android:textSize="22sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/iv_twitter_circle"
-            app:layout_constraintTop_toTopOf="parent" />
+    <Button
+        android:id="@+id/btn_edit_twitter_circle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:backgroundTint="@color/white"
+        android:text="@string/edit"
+        android:textColor="@color/black"
+        app:cornerRadius="25dp"
+        app:layout_constraintBottom_toBottomOf="@id/iv_twitter_circle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/iv_twitter_circle" />
 
-        <com.google.android.material.button.MaterialButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_margin="17dp"
-            android:text="@string/edit"
-            app:cornerRadius="20dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/iv_green_badge_public"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="-4dp"
+        android:layout_marginBottom="-4dp"
+        android:background="@color/white"
+        android:src="@drawable/ic_check_green"
+        app:layout_constraintBottom_toBottomOf="@id/iv_public"
+        app:layout_constraintEnd_toEndOf="@id/iv_public"
+        app:shapeAppearanceOverlay="@style/CircularImageView"
+        app:strokeColor="@color/white"
+        app:strokeWidth="1dp" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/iv_green_badge_twitter_circle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="-4dp"
+        android:layout_marginBottom="-4dp"
+        android:visibility="gone"
+        android:background="@color/white"
+        android:src="@drawable/ic_check_green"
+        app:layout_constraintBottom_toBottomOf="@id/iv_twitter_circle"
+        app:layout_constraintEnd_toEndOf="@id/iv_twitter_circle"
+        app:shapeAppearanceOverlay="@style/CircularImageView"
+        app:strokeColor="@color/white"
+        app:strokeWidth="1dp" />
 
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
